@@ -5,7 +5,7 @@ void	ra(s_stack *a)
 	if (!a || !a->head || !a->head->next)
 		return ;
 	rotate(a);
-	write(1, "ra\n", 3);		
+	write(1, "ra\n", 3);
 }
 
 void	rb(s_stack *b)

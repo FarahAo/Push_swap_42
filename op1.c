@@ -5,13 +5,13 @@ void	swap_sa(s_stack *a)
 	if (!a || !a->head || !a->head->next)
 		return ;
 	swap(a);
-	write (1, "sa\n", 3);
+	write(1, "sa\n", 3);
 }
 
 void	swap_sb(s_stack *b)
 {
 	if (!b || !b->head || !b->head->next)
-			return ;
+		return ;
 	swap(b);
 	write(1, "sb\n", 3);
 }
@@ -38,7 +38,7 @@ void	pa(s_stack *a, s_stack *b)
 
 void	pb(s_stack *a, s_stack *b)
 {
-	s_node *tmp;
+	s_node	*tmp;
 
 	if (!a || !a->head || !b)
 		return ;
@@ -46,5 +46,5 @@ void	pb(s_stack *a, s_stack *b)
 	a->head = a->head->next;
 	tmp->next = b->head;
 	b->head = tmp;
-	write (1, "pb\n", 3);
+	write(1, "pb\n", 3);
 }

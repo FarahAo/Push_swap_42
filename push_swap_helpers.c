@@ -26,15 +26,16 @@ s_node	*ft_lstnew(int value)
 
 void	ft_lstadd_front(s_stack *lst, s_node *new)
 {
-	if (!lst ||!new)
+	if (!lst || !new)
 		return ;
 	new->next = lst->head;
 	lst->head = new;
 }
 
-void print_stack(s_node *node) // this is for testing while we are currently writing the code but iam pretty sure we will eventually keep it
+void	print_stack(s_node *node)
+// this is for testing while we are currently writing the code but iam pretty sure we will eventually keep it
 {
-	while(node)
+	while (node)
 	{
 		printf("%d\n", node->value);
 		node = node->next;
@@ -42,20 +43,21 @@ void print_stack(s_node *node) // this is for testing while we are currently wri
 }
 
 void	swap(s_stack *p)
-{	
-	s_node *tmp;
+{
+	s_node	*tmp;
+
 	if (!p || !p->head || !p->head->next)
 		return ;
 	tmp = p->head;
-	p ->head = p->head->next;
+	p->head = p->head->next;
 	tmp->next = p->head->next;
 	p->head->next = tmp;
 }
 
 void	rotate(s_stack *p)
 {
-	s_node *tmp;
-	s_node *last;
+	s_node	*tmp;
+	s_node	*last;
 
 	if (!p || !p->head || !p->head->next)
 		return ;
@@ -66,4 +68,19 @@ void	rotate(s_stack *p)
 		last = last->next;
 	last->next = tmp;
 	tmp->next = NULL;
+}
+void	reverse_rotate(s_stack *p)
+{
+	s_node	*tmp;
+	s_node	*last;
+
+	if (!p || !p->head || !p->head->next)
+		return ;
+	tmp = p->head;
+	while (tmp->next->next)
+		tmp = tmp->next;
+	last = tmp->next;
+	tmp->next = NULL;
+	last->next = p->head;
+	p->head = last;
 }

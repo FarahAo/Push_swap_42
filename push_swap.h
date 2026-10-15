@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:51:19 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/13 19:21:16 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/15 10:49:04 by tuqa134          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
 #include <stdlib.h>
-#include <stdio.h> //dont forget to remove when sumbitting 
+#include <stdio.h> 
 #include <unistd.h>
 
 typedef struct t_node
@@ -39,17 +38,10 @@ void	pb(s_stack *a, s_stack *b);
 void	ra(s_stack *a);
 void	rb(s_stack *b);
 void	rr(s_stack *a, s_stack *b);
+void	rra(s_stack *a);
+void	rrb(s_stack *b);
+void	rrr(s_stack *a, s_stack *b);
 void	swap(s_stack *p);
 void	rotate(s_stack *p);
-
-
-
-
-
-
-
-
-
-
-
+void reverse_rotate(s_stack *p);
 #endif
