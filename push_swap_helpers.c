@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-s_list	*ft_lstnew(int value)
+s_node	*ft_lstnew(int value)
 {
-	s_list	*node;
+	s_node	*node;
 
-	node = malloc(sizeof(s_list));
+	node = malloc(sizeof(s_node));
 	if (!node)
 		return (NULL);
 	node->value = value;
@@ -24,19 +24,46 @@ s_list	*ft_lstnew(int value)
 	return (node);
 }
 
-void	ft_lstadd_front(s_list **lst, s_list *new)
+void	ft_lstadd_front(s_stack *lst, s_node *new)
 {
 	if (!lst ||!new)
 		return ;
-	new->next = *lst;
-	*lst = new;
+	new->next = lst->head;
+	lst->head = new;
 }
 
-void print_stack(s_list *node) // this is for testing while we are currently writing the code but iam pretty sure we will eventually keep it
+void print_stack(s_node *node) // this is for testing while we are currently writing the code but iam pretty sure we will eventually keep it
 {
 	while(node)
 	{
 		printf("%d\n", node->value);
 		node = node->next;
 	}
+}
+
+void	swap(s_stack *p)
+{	
+	s_node *tmp;
+	if (!p || !p->head || !p->head->next)
+		return ;
+	tmp = p->head;
+	p ->head = p->head->next;
+	tmp->next = p->head->next;
+	p->head->next = tmp;
+}
+
+void	rotate(s_stack *p)
+{
+	s_node *tmp;
+	s_node *last;
+
+	if (!p || !p->head || !p->head->next)
+		return ;
+	tmp = p->head;
+	last = tmp;
+	p->head = p->head->next;
+	while (last->next)
+		last = last->next;
+	last->next = tmp;
+	tmp->next = NULL;
 }
