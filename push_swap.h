@@ -6,12 +6,13 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:51:19 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/15 13:05:57 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/15 15:43:40 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
+# include "Libft/libft.h"
+# include "Printf/ft_printf.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -24,11 +25,11 @@ typedef struct s_node
 
 typedef struct s_stack
 {
-	struct s_stack	*head;
+	struct s_node	*head;
 }					t_stack;
 
-t_node				*ft_lstnew(int value);
-void				ft_lstadd_front(t_stack lst, t_node *new);
+t_node				*new_node(int value);
+void				add_node(t_stack lst, t_node *new);
 void				print_stack(t_node *node);
 void				swap_sa(t_stack *a);
 void				swap_sb(t_stack *b);
