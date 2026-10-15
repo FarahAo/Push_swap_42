@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   op2.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/15 11:47:00 by tkhaleel          #+#    #+#             */
+/*   Updated: 2026/10/15 13:07:49 by tkhaleel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
 
-void	ra(s_stack *a)
+void	ra(t_stack *a)
 {
 	if (!a || !a->head || !a->head->next)
 		return ;
@@ -8,7 +19,7 @@ void	ra(s_stack *a)
 	write(1, "ra\n", 3);
 }
 
-void	rb(s_stack *b)
+void	rb(t_stack *b)
 {
 	if (!b || !b->head || !b->head->next)
 		return ;
@@ -16,7 +27,7 @@ void	rb(s_stack *b)
 	write(1, "rb\n", 3);
 }
 
-void	rr(s_stack *a, s_stack *b)
+void	rr(t_stack *a, t_stack *b)
 {
 	rotate(a);
 	rotate(b);

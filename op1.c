@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	swap_sa(s_stack *a)
+void	swap_sa(t_stack *a)
 {
 	if (!a || !a->head || !a->head->next)
 		return ;
@@ -8,7 +8,7 @@ void	swap_sa(s_stack *a)
 	write(1, "sa\n", 3);
 }
 
-void	swap_sb(s_stack *b)
+void	swap_sb(t_stack *b)
 {
 	if (!b || !b->head || !b->head->next)
 		return ;
@@ -16,16 +16,16 @@ void	swap_sb(s_stack *b)
 	write(1, "sb\n", 3);
 }
 
-void	swap_ss(s_stack *a, s_stack *b)
+void	swap_ss(t_stack *a, t_stack *b)
 {
 	swap(a);
 	swap(b);
 	write(1, "ss\n", 3);
 }
 
-void	pa(s_stack *a, s_stack *b)
+void	pa(t_stack *a, t_stack *b)
 {
-	s_node	*tmp;
+	t_node	*tmp;
 
 	if (!b || !b->head || !a)
 		return ;
@@ -36,9 +36,9 @@ void	pa(s_stack *a, s_stack *b)
 	write(1, "pa\n", 3);
 }
 
-void	pb(s_stack *a, s_stack *b)
+void	pb(t_stack *a, t_stack *b)
 {
-	s_node	*tmp;
+	t_node	*tmp;
 
 	if (!a || !a->head || !b)
 		return ;

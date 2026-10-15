@@ -6,17 +6,16 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:56:33 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/13 16:31:38 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/15 13:10:17 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
-s_node	*ft_lstnew(int value)
+t_node	*ft_lstnew(int value)
 {
-	s_node	*node;
+	t_node	*node;
 
-	node = malloc(sizeof(s_node));
+	node = malloc(sizeof(t_node));
 	if (!node)
 		return (NULL);
 	node->value = value;
@@ -24,7 +23,7 @@ s_node	*ft_lstnew(int value)
 	return (node);
 }
 
-void	ft_lstadd_front(s_stack *lst, s_node *new)
+void	ft_lstadd_front(t_stack *lst, t_node *new)
 {
 	if (!lst || !new)
 		return ;
@@ -32,7 +31,7 @@ void	ft_lstadd_front(s_stack *lst, s_node *new)
 	lst->head = new;
 }
 
-void	print_stack(s_node *node)
+void	print_stack(t_node *node)
 // this is for testing while we are currently writing the code but iam pretty sure we will eventually keep it
 {
 	while (node)
@@ -42,9 +41,9 @@ void	print_stack(s_node *node)
 	}
 }
 
-void	swap(s_stack *p)
+void	swap(t_stack *p)
 {
-	s_node	*tmp;
+	t_node	*tmp;
 
 	if (!p || !p->head || !p->head->next)
 		return ;
@@ -54,10 +53,10 @@ void	swap(s_stack *p)
 	p->head->next = tmp;
 }
 
-void	rotate(s_stack *p)
+void	rotate(t_stack *p)
 {
-	s_node	*tmp;
-	s_node	*last;
+	t_node	*tmp;
+	t_node	*last;
 
 	if (!p || !p->head || !p->head->next)
 		return ;
@@ -69,10 +68,11 @@ void	rotate(s_stack *p)
 	last->next = tmp;
 	tmp->next = NULL;
 }
-void	reverse_rotate(s_stack *p)
+
+void	reverse_rotate(t_stack *p)
 {
-	s_node	*tmp;
-	s_node	*last;
+	t_node	*tmp;
+	t_node	*last;
 
 	if (!p || !p->head || !p->head->next)
 		return ;
