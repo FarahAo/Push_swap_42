@@ -6,7 +6,7 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:51:19 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/15 15:43:40 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/16 16:14:16 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -26,7 +26,20 @@ typedef struct s_node
 typedef struct s_stack
 {
 	struct s_node	*head;
-}					t_stack;
+}	t_stack;
+typedef enum e_strategy
+{
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX
+}	t_strategy;
+
+typedef struct s_options
+{
+	t_strategy	strategy;
+	int			bench;
+}	t_options;
 
 t_node				*new_node(int value);
 void				add_node(t_stack lst, t_node *new);

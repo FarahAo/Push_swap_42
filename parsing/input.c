@@ -6,11 +6,52 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/15 18:12:38 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/16 16:52:06 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
+
+#include "libft.h"
+int is_duplicate(t_node *stack, int val)
+{
+	while(stack)
+	{
+		if (stack ->value == val)
+			return(1);
+		stack=stack->next;
+	}
+	return(0);
+}
+int	ft_atoi(const char *str, int *value)
+{
+        long     num;
+        int     sign;
+        int     i;
+
+        num = 0;
+        sign = 1;
+        i = 0;
+        if (str[i] == '+')
+                i++;
+        else if (str[i] == '-')
+        {
+                sign *= -1;
+                i++;
+        }
+        while (str[i])
+        {
+                num = (num * 10) + (str[i] - '0');
+		if ((sign == 1 && num > 2147483647L)
+			|| (sign == -1 && num > 2147483648L))
+        	{
+                *value = 1;
+                return(0);
+        	}
+                i++;
+        }
+        return ((int)(num * sign));
+}
+
 int	is_valid_number(char *number)
 {
 	int	i;
