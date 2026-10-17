@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/17 13:52:07 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/17 16:05:43 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -24,7 +24,7 @@ int	is_duplicate(t_node *stack, int val)
 	return (0);
 }
 
-int	ft_atoi(const char *str, int *value)
+int	parse_atoi(const char *str, int *value)
 {
 	long		num;
 	int			sign;
@@ -73,7 +73,35 @@ int	is_valid_number(char *number)
 	}
 	return (1);
 }
-void parse
+void print_error(t_options *options)
+{
+	if (options)
+	{
+		free_stack(&options.a);
+		free_stack(&options.b);
+	}
+	write(1, 'Error\n', 6);
+	exit(EXIT_FAILURE);
+}
+void add_to_stack(t_stack *a, char *num, t_options *options)
+{
+	t_node *newnode;
+	int number;
+
+	number = parse_atoi(num);
+	if (is_duplicate(a.head ,num))
+		printf_error(options);
+	newnode = new_node(&number);
+	if (!newnode)
+	{
+		free(split);
+		printf_error(options);
+	}
+	add_node(*a, &number);
+	}
+}
+
+
 void	parse_args(int argc, char **argv,t_stack *a,t_options *options)
 {
 	char			**res;
