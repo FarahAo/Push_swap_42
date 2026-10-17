@@ -6,12 +6,12 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:56:33 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/15 15:43:11 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/17 11:13:24 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-t_node	*new_node (int value)
+t_node	*new_node(int value)
 {
 	t_node	*node;
 
@@ -41,19 +41,19 @@ void	print_stack(t_node *node)
 	}
 }
 
-void    free_stack(t_stack *stack)
+void	free_stack(t_stack *stack)
 {
-    t_node  *current;
-    t_node  *nextn;
+	t_node	*current;
+	t_node	*nextn;
 
-    if (!stack)
-        return ;
-    current = stack->head;
-    while (current)
-    {
-        nextn = current->next;
-        free(current);
-        current = nextn;
-    }
-    stack->head = NULL;
+	if (!stack)
+		return ;
+	current = stack->head;
+	while (current)
+	{
+		nextn = current->next;
+		free(current);
+		current = nextn;
+	}
+	stack->head = NULL;
 }
