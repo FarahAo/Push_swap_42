@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/17 10:55:38 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/17 13:30:14 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -46,7 +46,7 @@ int	ft_atoi(const char *str, int *value)
 		if ((sign == 1 && num > 2147483647L)
 			|| (sign == -1 && num > 2147483648L))
 		{
-			*value = 1
+			*value = 1;
 				return (0);
 		}
 		i++;
@@ -74,27 +74,31 @@ int	is_valid_number(char *number)
 	return (1);
 }
 
-void	parse_args(int argc, char **argv)
+void	parse_args(int argc, char **argv,t_strategy *strategy)
 {
-	char			**numbers;
+	char			**res;
 	int				i;
 	int				j;
+	int				c;
 
 	i = 1;
 	while (i < argc)
 	{
-		numbers = ft_split(argv[i], ' ');
-		if (!numbers)
+		res = ft_split(argv[i], ' ');
+		if (!res)
 			return ;
 		j = 0;
 	//loop just for test
-		while (numbers[j])
+		while (res[j])
 		{
-			printf("%s\n", numbers[j]); //validate numbers and add them to the stack
-			if (is_valid_number(numbers[j]))
+			if (res[j][0] == '-' && res[j][1] == '-')
+				parse_flags(res[j],);
+			/*
+			printf("%s\n", res[j]); //validate numbers and add them to the stack
+			if (is_valid_number(res[j]))
 				printf("Valid\n");
 			else
-				printf("Not Valid\n");
+				printf("Not Valid\n");*/
 			j++;
 		}
 //free_split(numbers);
@@ -104,7 +108,13 @@ void	parse_args(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
+
+	t_options options;
+       	options.strategy = ADAPTIVE;
+	options.bench = 0;
 	if (argc > 1)
-		parse_args(argc, argv);
+	{
+		parse_args(argc, argv, &(options.strategy));
+	}
 	return (0);
 }

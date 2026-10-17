@@ -6,7 +6,7 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:51:19 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/16 16:14:16 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/17 12:56:51 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -42,7 +42,7 @@ typedef struct s_options
 }	t_options;
 
 t_node				*new_node(int value);
-void				add_node(t_stack lst, t_node *new);
+void				add_node(t_stack *lst, t_node *new);
 void				print_stack(t_node *node);
 void				swap_sa(t_stack *a);
 void				swap_sb(t_stack *b);

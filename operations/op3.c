@@ -6,9 +6,10 @@
 /*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 11:47:00 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/10/15 13:08:22 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/17 12:54:38 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rra(t_stack *a)
@@ -30,4 +31,6 @@ void	rrb(t_stack *b)
 void	rrr(t_stack *a, t_stack *b)
 {
 	reverse_rotate(a);
+	reverse_rotate(b);
+	write(1, "rrr\n", 4);
 }

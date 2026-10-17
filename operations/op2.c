@@ -6,9 +6,10 @@
 /*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 11:47:00 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/10/15 13:07:49 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/17 12:54:21 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ra(t_stack *a)
