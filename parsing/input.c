@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/17 13:30:14 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/17 13:52:07 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -73,8 +73,8 @@ int	is_valid_number(char *number)
 	}
 	return (1);
 }
-
-void	parse_args(int argc, char **argv,t_strategy *strategy)
+void parse
+void	parse_args(int argc, char **argv,t_stack *a,t_options *options)
 {
 	char			**res;
 	int				i;
@@ -92,7 +92,16 @@ void	parse_args(int argc, char **argv,t_strategy *strategy)
 		while (res[j])
 		{
 			if (res[j][0] == '-' && res[j][1] == '-')
-				parse_flags(res[j],);
+				parse_flags(res[j],*options);
+			else //number validity
+				if(is_valid_number(res[j]))
+					add_to_stack(*a,res[j]);
+				else
+				{
+					printf_error();
+					return;
+				}
+
 			/*
 			printf("%s\n", res[j]); //validate numbers and add them to the stack
 			if (is_valid_number(res[j]))
@@ -109,12 +118,16 @@ void	parse_args(int argc, char **argv,t_strategy *strategy)
 int	main(int argc, char **argv)
 {
 
+	t_stack		a;
+	t_stack		b;
 	t_options options;
        	options.strategy = ADAPTIVE;
 	options.bench = 0;
+	a.head=NULL;
+	b.head = NULL;
 	if (argc > 1)
 	{
-		parse_args(argc, argv, &(options.strategy));
+		parse_args(argc, argv,&a,&(options));
 	}
 	return (0);
 }
