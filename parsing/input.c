@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/17 16:33:45 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/19 16:56:44 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,28 +102,18 @@ void add_to_stack(t_stack *a, char *num, t_options *options)
 	}
 }
 
-
-int	ft_strncmpp(char *s1, char *s2)
-{
-	size_t	i;
-
-	i = 0;
-	while(s1[i] == s2[i] && s1[i])
-		i++;
-	return((unsigned char)s1[i] - (unsigned char)s2[i]);
-
-}
 void	parse_flags(char *res, t_options *options)
 {
-	if (ft_strncmpp(res, "--bench") == 0)
+	if (ft_strncmp(res, "--bench") == 0)
 		options->bench = 1;
-	else if (ft_strncmpp(res, "--simple") == 0)
+	else if (ft_strncmp(res, "--simple") == 0)
 		options->strategy = SIMPLE;
-	else if (ft_strncmpp(res, "--medium") == 0)
+	else if (ft_strncmp(res, "--medium") == 0)
 		options->strategy = MEDIUM;
-	else if (ft_strncmpp(res, "--complex") == 0)
+	else if (ft_strncmp(res, "--complex") == 0)
 		options->strategy = COMPLEX;
 }
+//void parse_numbers(res[i],
 void	parse_args(int argc, char **argv,t_stack *a,t_options *options)
 {
 	char			**res;

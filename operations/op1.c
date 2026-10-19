@@ -6,17 +6,18 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 10:20:39 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/17 10:20:45 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/19 17:05:46 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_sa(t_stack *a)
+void	swap_sa(t_stack *a, t_options *option)
 {
 	if (!a || !a->head || !a->head->next)
 		return ;
 	swap(a);
+	option->OP_counter.SA++;		
 	write(1, "sa\n", 3);
 }
 

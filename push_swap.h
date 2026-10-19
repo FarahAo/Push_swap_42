@@ -6,7 +6,7 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:51:19 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/17 12:56:51 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/19 17:00:02 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -35,10 +35,28 @@ typedef enum e_strategy
 	COMPLEX
 }	t_strategy;
 
+typedef  op_counts
+{
+	int SA;
+	int SB;
+	int SS;
+	int PA;
+	int PB;
+	int RA;
+	int RB;
+	int RR;
+	int RRA;
+	int RRB;
+	int RRR;
+	int TOTAL;
+}	t_opcounts;
 typedef struct s_options
 {
+	t_stack  a;
+	t_stack  b;
 	t_strategy	strategy;
 	int			bench;
+	t_opcounts	OP_counter;
 }	t_options;
 
 t_node				*new_node(int value);
