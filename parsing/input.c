@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-#include "libft.h"
+#include "../push_swap.h"
 
 int	is_duplicate(t_node *stack, int val)
 {
@@ -44,18 +42,16 @@ int	parse_atoi(const char *str, int *value)
 	while (str[i])
 	{
 		num = (num * 10) + (str[i] - '0');
-		if ((sign == 1 && num > 2147483647L)
+		if ((sign == 1 && num > 2147483647L) 
 			|| (sign == -1 && num > 2147483648L))
-		{
-			*value = 1;
 				return (0);
-		}
 		i++;
 	}
-	return ((int)(num * sign));
+	*value = (int)(num * sign);
+	return (1); //changed the function returning value to be used as a way to indicate if atoi worked correctly or not
 }
 
-int	is_valid_number(char *number)
+int	is_valid_number(const char *number)
 {
 	int	i;
 
@@ -78,40 +74,53 @@ void print_error(t_options *options)
 {
 	if (options)
 	{
-		free_stack(&options.a);
-		free_stack(&options.b);
+		free_stack(&options->a);
+		free_stack(&options->b);
 	}
-	write(1, 'Error\n', 6);
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 void add_to_stack(t_stack *a, char *num, t_options *options)
 {
 	t_node *newnode;
 	int number;
-
-	number = parse_atoi(num);
-	if (is_duplicate(a.head ,num))
-		printf_error(options);
-	newnode = new_node(&number);
+	 if(parse_atoi(num, &number))
+	 {
+	  if(is_duplicate(a->head , number))
+		print_error(options);
+	 }
+	else 
+		print_error(options);
+	newnode = new_node(number);
 	if (!newnode)
 	{
-		free(split);
-		printf_error(options);
+		print_error(options);
 	}
-	add_node(*a, &number);
-	}
+	add_node(a, newnode);
+}
+
+int strncmp(char *s1, char *s2)
+{
+	size_t i;
+
+	i = 0;
+	while(s1[i] == s2[i] && s1[i])
+	  i++;
+	return ((unsigned int)s1[i] - (unsigned int)s2[i]);
 }
 
 void	parse_flags(char *res, t_options *options)
 {
-	if (ft_strncmp(res, "--bench") == 0)
+	if (strncmp(res, "--bench") == 0)
 		options->bench = 1;
-	else if (ft_strncmp(res, "--simple") == 0)
+	else if (strncmp(res, "--simple") == 0)
 		options->strategy = SIMPLE;
-	else if (ft_strncmp(res, "--medium") == 0)
+	else if (strncmp(res, "--medium") == 0)
 		options->strategy = MEDIUM;
-	else if (ft_strncmp(res, "--complex") == 0)
+	else if (strncmp(res, "--complex") == 0)
 		options->strategy = COMPLEX;
+		else 
+		print_error(options);
 }
 //void parse_numbers(res[i],
 void	parse_args(int argc, char **argv,t_stack *a,t_options *options)
@@ -119,56 +128,43 @@ void	parse_args(int argc, char **argv,t_stack *a,t_options *options)
 	char			**res;
 	int				i;
 	int				j;
-	int				c;
-
+//
 	i = 1;
 	while (i < argc)
 	{
 		res = ft_split(argv[i], ' ');
 		if (!res)
-			return ;
+			print_error(options); //beacuse what if the allocation fails and there was already allocated things before and print error frees the nodes.
 		j = 0;
-	//loop just for test
 		while (res[j])
 		{
 			if (res[j][0] == '-' && res[j][1] == '-')
-				parse_flags(res[j],*options);
-			else //number validity
+				parse_flags(res[j], options);
+			else 
 				if (is_valid_number(res[j]))
-					add_to_stack(*a,res[j]);
+					add_to_stack(a ,res[j], options);
 				else
 				{
-					printf_error();
-					return;
+					free_split(res);
+					print_error(options);
 				}
-
-			/*
-			printf("%s\n", res[j]); //validate numbers and add them to the stack
-			if (is_valid_number(res[j]))
-				printf("Valid\n");
-			else
-				printf("Not Valid\n");*/
 			j++;
 		}
-//free_split(numbers);
+		free_split(res);
 		i++;
 	}
 }
-
-
 int	main(int argc, char **argv)
 {
-
-	t_stack		a;
-	t_stack		b;
 	t_options options;
-       	options.strategy = ADAPTIVE;
 	options.bench = 0;
-	a.head=NULL;
-	b.head = NULL;
+	options.a.head = NULL;
+	options.b.head = NULL;
+	options.strategy = ADAPTIVE;
 	if (argc > 1)
 	{
-		parse_args(argc, argv,&a,&(options));
+		parse_args(argc, argv,&options.a,&(options));
+		//free_stack(&option.b)
 	}
 	return (0);
 }
