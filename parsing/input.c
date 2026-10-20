@@ -122,7 +122,6 @@ void	parse_flags(char *res, t_options *options)
 		else 
 		print_error(options);
 }
-//void parse_numbers(res[i],
 void	parse_args(int argc, char **argv,t_stack *a,t_options *options)
 {
 	char			**res;

@@ -43,7 +43,7 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			printf_conversion(format[i + 1], &args, &counter);
-			i ++;
+			i++;
 		}
 		else
 		{
