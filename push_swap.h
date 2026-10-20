@@ -13,7 +13,7 @@
 # define PUSH_SWAP_H
 # include "Libft/libft.h"
 # include "Printf/ft_printf.h"
-# include <stdio.h>
+# include <stdio.h> //delete later 
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -35,7 +35,7 @@ typedef enum e_strategy
 	COMPLEX
 }	t_strategy;
 
-typedef  op_counts
+/*typedef  op_counts
 {
 	int SA;
 	int SB;
@@ -49,14 +49,13 @@ typedef  op_counts
 	int RRB;
 	int RRR;
 	int TOTAL;
-}	t_opcounts;
+}	t_opcounts; */
 typedef struct s_options
 {
 	t_stack  a;
 	t_stack  b;
 	t_strategy	strategy;
 	int			bench;
-	t_opcounts	OP_counter;
 }	t_options;
 
 t_node				*new_node(int value);
@@ -76,4 +75,5 @@ void				rrr(t_stack *a, t_stack *b);
 void				swap(t_stack *p);
 void				rotate(t_stack *p);
 void				reverse_rotate(t_stack *p);
+void                free_split(char **res);
 #endif
