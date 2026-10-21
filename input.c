@@ -12,34 +12,6 @@
 
 #include "push_swap.h"
 
-int	parse_atoi(const char *str, int *value)
-{
-	long		num;
-	int			sign;
-	int			i;
-
-	num = 0;
-	sign = 1;
-	i = 0;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
-	while (str[i])
-	{
-		num = (num * 10) + (str[i] - '0');
-		if ((sign == 1 && num > 2147483647L) 
-			|| (sign == -1 && num > 2147483648L))
-				return (0);
-		i++;
-	}
-	*value = (int)(num * sign);
-	return (1); //changed the function returning value to be used as a way to indicate if atoi worked correctly or not
-}
-
 int	is_valid_number(const char *number)
 {
 	int	i;
@@ -59,7 +31,8 @@ int	is_valid_number(const char *number)
 	}
 	return (1);
 }
-void print_error(t_options *options)
+
+void	print_error(t_options *options)
 {
 	if (options)
 	{
@@ -70,16 +43,17 @@ void print_error(t_options *options)
 	exit(EXIT_FAILURE);
 }
 
-void add_to_stack(t_stack *a, char *num, t_options *options)
+void	add_to_stack(t_stack *a, char *num, t_options *options)
 {
-	t_node *newnode;
-	int number;
-	 if(parse_atoi(num, &number))
-	 {
-	  if(is_duplicate(a->head , number))
-		print_error(options);
-	 }
-	else 
+	t_node	*newnode;
+	int		number;
+
+	if (parse_atoi(num, &number))
+	{
+		if (is_duplicate(a->head, number))
+			print_error(options);
+	}
+	else
 		print_error(options);
 	newnode = new_node(number);
 	if (!newnode)
@@ -99,11 +73,11 @@ void	parse_flags(char *res, t_options *options)
 		options->strategy = MEDIUM;
 	else if (strnncmp(res, "--complex") == 0)
 		options->strategy = COMPLEX;
-		else 
+	else
 		print_error(options);
 }
 
-void	parse_args(int argc, char **argv,t_stack *a,t_options *options)
+void	parse_args(int argc, char **argv, t_stack *a, t_options *options)
 {
 	char			**res;
 	int				i;
@@ -114,37 +88,38 @@ void	parse_args(int argc, char **argv,t_stack *a,t_options *options)
 	{
 		res = ft_split(argv[i], ' ');
 		if (!res)
-			print_error(options); //beacuse what if the allocation fails and there was already allocated things before and print error frees the nodes.
+			print_error(options);
 		j = 0;
 		while (res[j])
 		{
 			if (res[j][0] == '-' && res[j][1] == '-')
 				parse_flags(res[j], options);
-			else 
+			else
 				if (is_valid_number(res[j]))
-					add_to_stack(a ,res[j], options); 
-				else
-				{
-					free_split(res);
-					print_error(options);
-				}
+					add_to_stack(a, res[j], options);
+			else
+			{
+				free_split(res);
+				print_error(options);
+			}
 			j++;
 		}
 		free_split(res);
 		i++;
 	}
-	//print_stack(a->head);
 }
+
 int	main(int argc, char **argv)
 {
-	t_options options;
+	t_options	options;
+
 	options.bench = 0;
 	options.a.head = NULL;
 	options.b.head = NULL;
 	options.strategy = ADAPTIVE;
 	if (argc > 1)
 	{
-		parse_args(argc, argv,&options.a,&(options));
+		parse_args(argc, argv, &options.a, &(options));
 		//free_stack(&option.b)
 	}
 	free_stack(&options.a);

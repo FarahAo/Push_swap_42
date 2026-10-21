@@ -23,16 +23,27 @@ t_node	*new_node(int value)
 	return (node);
 }
 
-void	add_node(t_stack *lst, t_node *new)
+void	add_node(t_stack *stack, t_node *new)
 {
-	if (!lst || !new)
+	if (!stack || !new)
 		return ;
-	new->next = lst->head;
-	lst->head = new;
+	t_node *current;
+
+	current = stack->head;
+	if (!stack->head)
+	{
+		stack->head = new;
+		return ;
+	}
+	new->next = NULL;
+	while (current->next)
+		current = current->next;
+	current->next = new;
+
 }
 
 void	print_stack(t_node *a)
-// this is for testing while we are currently writing the code but iam pretty sure we will eventually keep it
+// this is for testing while we are currently writing the code
 {
 	
 	while (a)

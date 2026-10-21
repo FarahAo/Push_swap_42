@@ -43,7 +43,35 @@ int strnncmp(char *s1, char *s2)
 
 	i = 0;
 	while(s1[i] == s2[i] && s1[i])
-	  i++;
+		i++;
 	return ((unsigned int)s1[i] - (unsigned int)s2[i]);
 }
 
+
+int	parse_atoi(const char *str, int *value)
+{
+        long		num;
+        int			sign;
+        int			i;
+
+	num = 0;
+	sign = 1;
+	i = 0;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+	{
+		sign *= -1;
+		i++;
+	}
+	while (str[i])
+	{
+		num = (num * 10) + (str[i] - '0');
+		if ((sign == 1 && num > 2147483647L)
+                        || (sign == -1 && num > 2147483648L))
+			return (0);
+		i++;
+	}
+	*value = (int)(num * sign);
+	return (1);
+}
