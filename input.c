@@ -6,22 +6,11 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/19 16:56:44 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/21 10:20:48 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-
-int	is_duplicate(t_node *stack, int val)
-{
-	while (stack)
-	{
-		if (stack ->value == val)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
-}
+#include "push_swap.h"
 
 int	parse_atoi(const char *str, int *value)
 {
@@ -80,6 +69,7 @@ void print_error(t_options *options)
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
+
 void add_to_stack(t_stack *a, char *num, t_options *options)
 {
 	t_node *newnode;
@@ -99,35 +89,26 @@ void add_to_stack(t_stack *a, char *num, t_options *options)
 	add_node(a, newnode);
 }
 
-int strncmp(char *s1, char *s2)
-{
-	size_t i;
-
-	i = 0;
-	while(s1[i] == s2[i] && s1[i])
-	  i++;
-	return ((unsigned int)s1[i] - (unsigned int)s2[i]);
-}
-
 void	parse_flags(char *res, t_options *options)
 {
-	if (strncmp(res, "--bench") == 0)
+	if (strnncmp(res, "--bench") == 0)
 		options->bench = 1;
-	else if (strncmp(res, "--simple") == 0)
+	else if (strnncmp(res, "--simple") == 0)
 		options->strategy = SIMPLE;
-	else if (strncmp(res, "--medium") == 0)
+	else if (strnncmp(res, "--medium") == 0)
 		options->strategy = MEDIUM;
-	else if (strncmp(res, "--complex") == 0)
+	else if (strnncmp(res, "--complex") == 0)
 		options->strategy = COMPLEX;
 		else 
 		print_error(options);
 }
+
 void	parse_args(int argc, char **argv,t_stack *a,t_options *options)
 {
 	char			**res;
 	int				i;
 	int				j;
-//
+
 	i = 1;
 	while (i < argc)
 	{
@@ -141,7 +122,7 @@ void	parse_args(int argc, char **argv,t_stack *a,t_options *options)
 				parse_flags(res[j], options);
 			else 
 				if (is_valid_number(res[j]))
-					add_to_stack(a ,res[j], options);
+					add_to_stack(a ,res[j], options); 
 				else
 				{
 					free_split(res);
@@ -152,6 +133,7 @@ void	parse_args(int argc, char **argv,t_stack *a,t_options *options)
 		free_split(res);
 		i++;
 	}
+	//print_stack(a->head);
 }
 int	main(int argc, char **argv)
 {
@@ -165,5 +147,6 @@ int	main(int argc, char **argv)
 		parse_args(argc, argv,&options.a,&(options));
 		//free_stack(&option.b)
 	}
+	free_stack(&options.a);
 	return (0);
 }

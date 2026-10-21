@@ -60,7 +60,7 @@ typedef struct s_options
 
 t_node				*new_node(int value);
 void				add_node(t_stack *lst, t_node *new);
-void				print_stack(t_node *node);
+void				print_stack(t_node *a);
 void				swap_sa(t_stack *a);
 void				swap_sb(t_stack *b);
 void				swap_ss(t_stack *a, t_stack *b);
@@ -76,4 +76,9 @@ void				swap(t_stack *p);
 void				rotate(t_stack *p);
 void				reverse_rotate(t_stack *p);
 void                free_split(char **res);
+void				free_stack(t_stack *stack);
+int					is_duplicate(t_node *stack, int val);
+int					strnncmp(char *s1, char *s2);
+
+
 #endif

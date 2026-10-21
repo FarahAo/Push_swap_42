@@ -31,13 +31,14 @@ void	add_node(t_stack *lst, t_node *new)
 	lst->head = new;
 }
 
-void	print_stack(t_node *node)
+void	print_stack(t_node *a)
 // this is for testing while we are currently writing the code but iam pretty sure we will eventually keep it
 {
-	while (node)
+	
+	while (a)
 	{
-		printf("%d\n", node->value);
-		node = node->next;
+		printf("%d\n", a->value);
+		a = a->next;
 	}
 }
 
