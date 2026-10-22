@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/21 10:20:48 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/22 16:00:07 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,11 @@ void	parse_args(int argc, char **argv, t_stack *a, t_options *options)
 			else
 				if (is_valid_number(res[j]))
 					add_to_stack(a, res[j], options);
-			else
-			{
-				free_split(res);
-				print_error(options);
-			}
+				else
+				{
+					free_split(res);
+					print_error(options);
+				}
 			j++;
 		}
 		free_split(res);
