@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 17:07:50 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/22 14:10:24 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/22 14:58:52 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static double	calculate_disorder(t_node *current, long size, long total_pairs)
 		{
 			if (current->value > temp->value)
 				mistakes += 1;
+			total_pairs += 1;
 			temp = temp->next;
 			j++;
 		}
@@ -65,6 +66,6 @@ double	compute_disorder(t_stack *a)
 	if (!a || size <= 1)
 		return (0.0);
 	current = a->head;
-	total_pairs = size * (size -1) / 2;
+	total_pairs = 0;
 	return (calculate_disorder(current, size, total_pairs));
 }
