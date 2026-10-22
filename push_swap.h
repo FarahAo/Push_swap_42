@@ -79,7 +79,7 @@ void                free_split(char **res);
 void				free_stack(t_stack *stack);
 int					is_duplicate(t_node *stack, int val);
 int					strnncmp(char *s1, char *s2);
-int     parse_atoi(const char *str, int *value);
+int     			parse_atoi(const char *str, int *value);
 
 
 #endif
