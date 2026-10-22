@@ -6,7 +6,7 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:51:19 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/19 17:00:02 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/22 13:54:21 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -80,6 +80,7 @@ void				free_stack(t_stack *stack);
 int					is_duplicate(t_node *stack, int val);
 int					strnncmp(char *s1, char *s2);
 int     			parse_atoi(const char *str, int *value);
+double				compute_disorder(t_stack *a);
 
 
 #endif
