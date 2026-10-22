@@ -12,7 +12,7 @@
 
 NAME = push_swap
 
-CFILES =  push_swap_helpers.c input.c parsing_helpers.c \
+CFILES =  push_swap_helpers.c input.c parsing_helpers.c disorder.c\
 
 OBJ = $(CFILES:.c=.o)
 

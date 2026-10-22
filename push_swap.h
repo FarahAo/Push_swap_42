@@ -82,5 +82,4 @@ int					strnncmp(char *s1, char *s2);
 int     			parse_atoi(const char *str, int *value);
 double				compute_disorder(t_stack *a);
 
-
 #endif
