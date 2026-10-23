@@ -3,60 +3,81 @@
 /*                                                        :::      ::::::::   */
 /*   op1.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 10:20:39 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/22 15:51:49 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/23 10:13:27 by tuqa134          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_sa(t_stack *a, t_options *option)
+void	swap_sa(t_options *option)
 {
-	if (!a || !a->head || !a->head->next)
+	if (!option || !option->a.head || !option->a.head->next)
 		return ;
-	swap(a);
+	swap(&option->a);
 	write(1, "sa\n", 3);
+	option->counter[SA]++;
 }
 
-void	swap_sb(t_stack *b)
+void	swap_sb(t_options *option)
 {
-	if (!b || !b->head || !b->head->next)
+	if (!option || !option->b.head || !option->b.head->next)
 		return ;
-	swap(b);
+	swap(&option->b);
 	write(1, "sb\n", 3);
+	option->counter[SB]++;
 }
 
-void	swap_ss(t_stack *a, t_stack *b)
+void	swap_ss(t_options *option)
 {
-	swap(a);
-	swap(b);
+	if (!option)
+		return ;
+	if (option->a.head && option->a.head->next)
+		swap(&option->a);
+	if (option->b.head && option->b.head->next)
+		swap(&option->b);
 	write(1, "ss\n", 3);
+	option->counter[SS]++;
 }
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_options *option)
 {
 	t_node	*tmp;
+	t_stack	*a;
+	t_stack	*b;
 
-	if (!b || !b->head || !a)
+	if (!option)
+		return ;
+	a = &option->a;
+	b = &option->b;
+	if (!b->head)
 		return ;
 	tmp = b->head;
 	b->head = b->head->next;
 	tmp->next = a->head;
 	a->head = tmp;
 	write(1, "pa\n", 3);
+	option->counter[PA]++;
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	pb(t_options *option)
 {
 	t_node	*tmp;
+	t_stack	*a;
+	t_stack	*b;
 
-	if (!a || !a->head || !b)
+	if (!option)
+		return ;
+	a = &option->a;
+	b = &option->b;
+	if (!a->head)
 		return ;
 	tmp = a->head;
 	a->head = a->head->next;
 	tmp->next = b->head;
 	b->head = tmp;
 	write(1, "pb\n", 3);
+	option->counter[PB]++;
 }

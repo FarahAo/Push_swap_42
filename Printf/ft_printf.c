@@ -3,51 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 12:05:45 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/09/30 13:52:48 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/23 10:40:38 by tuqa134          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
 
-void	printf_conversion(char c, va_list *args, int *counter)
+
+void	printf_conversion(int fd, char c, va_list *args, int *counter)
 {
 	if (c == 'c')
-		*counter += print_char(va_arg(*args, int));
+		*counter += print_char(fd, va_arg(*args, int));
 	else if (c == 's')
-		*counter += print_str(va_arg(*args, char *));
+		*counter += print_str(fd, va_arg(*args, char *));
 	else if (c == 'p')
-		*counter += print_ptr(va_arg(*args, void *));
+		*counter += print_ptr(fd, va_arg(*args, void *));
 	else if (c == 'd' || c == 'i')
-		*counter += print_nbr(va_arg(*args, int));
+		*counter += print_nbr(fd, va_arg(*args, int));
 	else if (c == 'u')
-		*counter += print_unbr(va_arg(*args, unsigned int));
+		*counter += print_unbr(fd, va_arg(*args, unsigned int));
 	else if (c == 'x' || c == 'X')
-		*counter += print_hex(va_arg(*args, unsigned int), c);
+		*counter += print_hex(fd, va_arg(*args, unsigned int), c);
 	else if (c == '%')
-		*counter += print_char('%');
+		*counter += print_char(fd, '%');
 }
 
-int	ft_printf(const char *format, ...)
+int	ft_printf(int fd, const char *format, ...)
 {
 	va_list	args;
 	int		counter;
 	int		i;
 
+	if (!format)
+		return (-1);
 	i = 0;
 	counter = 0;
 	va_start(args, format);
 	while (format[i])
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1])
 		{
-			printf_conversion(format[i + 1], &args, &counter);
-			i++;
+			printf_conversion(fd, format[++i], &args, &counter);
 		}
-		else
+		else if (format[i] != '%')
 		{
-			write(1, &format[i], 1);
+			write(fd, &format[i], 1);
 			counter++;
 		}
 		i++;

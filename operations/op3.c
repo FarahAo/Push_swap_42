@@ -3,34 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   op3.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 11:47:00 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/10/17 12:54:38 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/23 10:15:40 by tuqa134          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack *a)
+void	rra(t_options *option)
 {
-	if (!a || !a->head || !a->head->next)
+	if (!option || !option->a.head || !option->a.head->next)
 		return ;
-	reverse_rotate(a);
+	reverse_rotate(&option->a);
 	write(1, "rra\n", 4);
+	option->counter[RRA]++;
 }
 
-void	rrb(t_stack *b)
+void	rrb(t_options *option)
 {
-	if (!b || !b->head || !b->head->next)
+	if (!option || !option->b.head || !option->b.head->next)
 		return ;
-	reverse_rotate(b);
+	reverse_rotate(&option->b);
 	write(1, "rrb\n", 4);
+	option->counter[RRB]++;
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_options *option)
 {
-	reverse_rotate(a);
-	reverse_rotate(b);
+	if (!option)
+		return ;
+	if (option->a.head && option->a.head->next)
+		reverse_rotate(&option->a);
+	if (option->b.head && option->b.head->next)
+		reverse_rotate(&option->b);
 	write(1, "rrr\n", 4);
+	option->counter[RRR]++;
 }

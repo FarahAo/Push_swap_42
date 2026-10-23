@@ -3,34 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   op2.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 11:47:00 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/10/17 12:54:21 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/23 10:14:31 by tuqa134          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack *a)
+void	ra(t_options *option)
 {
-	if (!a || !a->head || !a->head->next)
+	if (!option || !option->a.head || !option->a.head->next)
 		return ;
-	rotate(a);
+	rotate(&option->a);
 	write(1, "ra\n", 3);
+	option->counter[RA]++;
 }
 
-void	rb(t_stack *b)
+void	rb(t_options *option)
 {
-	if (!b || !b->head || !b->head->next)
+	if (!option || !option->b.head || !option->b.head->next)
 		return ;
-	rotate(b);
+	rotate(&option->b);
 	write(1, "rb\n", 3);
+	option->counter[RB]++;
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_options *option)
 {
-	rotate(a);
-	rotate(b);
+	if (!option)
+		return ;
+	rotate(&option->a);
+	rotate(&option->b);
 	write(1, "rr\n", 3);
+	option->counter[RR]++;
 }

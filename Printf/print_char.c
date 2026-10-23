@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   print_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 12:54:09 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/09/29 17:45:31 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/23 10:41:42 by tuqa134          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
 
-int	print_char(char c)
+
+int	print_char(int fd,char c)
 {
-	write(1, &c, 1);
+	write(fd, &c, 1);
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/22 16:00:07 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/23 10:20:40 by tuqa134          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,7 @@ void	parse_args(int argc, char **argv, t_stack *a, t_options *options)
 {
 	t_options	options;
 
-	options.bench = 0;
-	options.a.head = NULL;
-	options.b.head = NULL;
+	option = (t_options){0};
 	options.strategy = ADAPTIVE;
 	if (argc > 1)
 	{
