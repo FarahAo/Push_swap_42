@@ -6,13 +6,13 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/23 10:20:40 by tuqa134          ###   ########.fr       */
+/*   Updated: 2026/10/23 17:32:32 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_valid_number(const char *number)
+static int	is_valid_number(const char *number)
 {
 	int	i;
 
@@ -32,7 +32,7 @@ int	is_valid_number(const char *number)
 	return (1);
 }
 
-void	print_error(t_options *options)
+static void	print_error(t_options *options)
 {
 	if (options)
 	{
@@ -43,27 +43,25 @@ void	print_error(t_options *options)
 	exit(EXIT_FAILURE);
 }
 
-void	add_to_stack(t_stack *a, char *num, t_options *options)
+static void	add_to_stack(char *num, t_options *options)
 {
 	t_node	*newnode;
 	int		number;
 
 	if (parse_atoi(num, &number))
 	{
-		if (is_duplicate(a->head, number))
+		if (is_duplicate(options->a.head, number))
 			print_error(options);
 	}
 	else
 		print_error(options);
 	newnode = new_node(number);
 	if (!newnode)
-	{
 		print_error(options);
-	}
-	add_node(a, newnode);
+	add_node(&options->a, newnode);
 }
 
-void	parse_flags(char *res, t_options *options)
+static void	parse_flags(char **arr, char *res, t_options *options)
 {
 	if (strnncmp(res, "--bench") == 0)
 		options->bench = 1;
@@ -73,11 +71,16 @@ void	parse_flags(char *res, t_options *options)
 		options->strategy = MEDIUM;
 	else if (strnncmp(res, "--complex") == 0)
 		options->strategy = COMPLEX;
+	else if (strnncmp(res, "--adaptive") == 0)
+		options->strategy = ADAPTIVE;
 	else
+	{
+		free_split(arr);
 		print_error(options);
+	}
 }
 
-void	parse_args(int argc, char **argv, t_stack *a, t_options *options)
+void	parse_args(int argc, char **argv,t_options *options)
 {
 	char			**res;
 	int				i;
@@ -93,10 +96,10 @@ void	parse_args(int argc, char **argv, t_stack *a, t_options *options)
 		while (res[j])
 		{
 			if (res[j][0] == '-' && res[j][1] == '-')
-				parse_flags(res[j], options);
+				parse_flags(res,res[j], options);
 			else
 				if (is_valid_number(res[j]))
-					add_to_stack(a, res[j], options);
+					add_to_stack(res[j], options);
 				else
 				{
 					free_split(res);
@@ -109,17 +112,17 @@ void	parse_args(int argc, char **argv, t_stack *a, t_options *options)
 	}
 }
 
-/*int	main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_options	options;
 
-	option = (t_options){0};
+	options = (t_options){0};
 	options.strategy = ADAPTIVE;
 	if (argc > 1)
 	{
-		parse_args(argc, argv, &options.a, &(options));
+		parse_args(argc, argv, &(options));
 		//free_stack(&option.b)
 	}
 	free_stack(&options.a);
 	return (0);
-} */
+} 

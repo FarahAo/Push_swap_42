@@ -6,11 +6,11 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 11:47:00 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/10/23 10:14:31 by tuqa134          ###   ########.fr       */
+/*   Updated: 2026/10/23 17:11:38 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ra(t_options *option)
 {

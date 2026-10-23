@@ -6,28 +6,11 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 17:07:50 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/22 15:03:29 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/23 15:14:26 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static long	stack_size(t_stack *a)
-{
-	t_node	*current;
-	long	count;
-
-	count = 0;
-	if (!a)
-		return (0);
-	current = a->head;
-	while (current)
-	{
-		count++;
-		current = current->next;
-	}
-	return (count);
-}
 
 static double	calculate_disorder(t_node *current, long size)
 {
@@ -61,11 +44,9 @@ static double	calculate_disorder(t_node *current, long size)
 double	compute_disorder(t_stack *a)
 {
 	t_node	*current;
-	long	size;
 
-	size = stack_size(a);
-	if (!a || size <= 1)
+	if (!a || a->size <= 1)
 		return (0.0);
 	current = a->head;
-	return (calculate_disorder(current, size));
+	return (calculate_disorder(current, a->size));
 }

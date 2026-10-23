@@ -6,11 +6,11 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 12:05:45 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/10/23 10:40:38 by tuqa134          ###   ########.fr       */
+/*   Updated: 2026/10/23 16:16:43 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include "ft_printf.h"
 void	printf_conversion(int fd, char c, va_list *args, int *counter)
 {
 	if (c == 'c')

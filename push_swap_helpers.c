@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:56:33 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/22 15:50:08 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/23 15:00:08 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -23,24 +23,24 @@ t_node	*new_node(int value)
 	return (node);
 }
 
-void	add_node(t_stack *stack, t_node *new)
+void    add_node(t_stack *stack, t_node *new)
 {
-	t_node	*current;
+        t_node  *current;
 
-	if (!stack || !new)
-		return ;
-	current = stack->head;
-	if (!stack->head)
-	{
-		stack->head = new;
-		return ;
-	}
-	new->next = NULL;
-	while (current->next)
-		current = current->next;
-	current->next = new;
+        if (!stack || !new)
+                return ;
+        new->next = NULL;
+        if (!stack->head)
+                stack->head = new;
+        else
+        {
+                current = stack->head;
+                while (current->next)
+                        current = current->next;
+                current->next = new;
+        }
+        stack->size++;
 }
-
 void	print_stack(t_node *a)
 {
 	while (a)
@@ -65,4 +65,5 @@ void	free_stack(t_stack *stack)
 		current = nextn;
 	}
 	stack->head = NULL;
+	stack->size = 0;
 }

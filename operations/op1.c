@@ -6,11 +6,11 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 10:20:39 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/23 10:13:27 by tuqa134          ###   ########.fr       */
+/*   Updated: 2026/10/23 17:11:28 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	swap_sa(t_options *option)
 {
@@ -58,6 +58,8 @@ void	pa(t_options *option)
 	b->head = b->head->next;
 	tmp->next = a->head;
 	a->head = tmp;
+	a->size++;
+	b->size--;
 	write(1, "pa\n", 3);
 	option->counter[PA]++;
 }
@@ -78,6 +80,8 @@ void	pb(t_options *option)
 	a->head = a->head->next;
 	tmp->next = b->head;
 	b->head = tmp;
+	a->size--;
+	b->size++;
 	write(1, "pb\n", 3);
 	option->counter[PB]++;
 }

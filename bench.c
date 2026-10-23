@@ -18,15 +18,15 @@ static void	print_strategy(t_options *option)
 {
 	ft_printf(2, "[bench] strategy: ");
 	if (option->strategy == SIMPLE)
-		ft_printf(2, "Simple / O(n^2)\n");
+		ft_printf(2, "Simple /  O(n²)\n");
 	else if (option->strategy == MEDIUM)
-		ft_printf(2, "Medium / O(n sqrt(n))\n");
+		ft_printf(2, "Medium / O(n√n))\n");
 	else if (option->strategy == COMPLEX)
 		ft_printf(2, "Complex / O(n log n)\n");
 	else if (option->disorder < 0.2)
-		ft_printf(2, "Adaptive / O(n^2)\n");
+		ft_printf(2, "Adaptive /  O(n²)\n");
 	else if (option->disorder < 0.5)
-		ft_printf(2, "Adaptive / O(n sqrt(n))\n");
+		ft_printf(2, "Adaptive / O(n√n))\n");
 	else
 		ft_printf(2, "Adaptive / O(n log n)\n");
 }

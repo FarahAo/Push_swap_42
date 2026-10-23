@@ -6,13 +6,13 @@
 /*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 17:52:29 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/09/29 17:53:22 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/23 16:11:54 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_hex(unsigned int n, char c)
+int	print_hex(int fd,unsigned int n, char c)
 {
 	char	*base;
 	int		count;
@@ -23,7 +23,7 @@ int	print_hex(unsigned int n, char c)
 	else
 		base = "0123456789ABCDEF";
 	if (n > 15)
-		count += print_hex(n / 16, c);
-	count += print_char(base[n % 16]);
+		count += print_hex(fd, n / 16, c);
+	count += print_char(fd, base[n % 16]);
 	return (count);
 }

@@ -6,13 +6,15 @@
 #    By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/13 16:37:21 by fabo-ome          #+#    #+#              #
-#    Updated: 2026/10/15 17:50:00 by tkhaleel         ###   ########.fr        #
+#    Updated: 2026/10/23 17:10:29 by tkhaleel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-CFILES =  push_swap_helpers.c input.c parsing_helpers.c disorder.c\
+CFILES =  push_swap_helpers.c input.c parsing_helpers.c disorder.c main.c\
+	  bench.c operations/op1.c operations/op2.c operations/op3.c \
+	  operations/opss.c
 
 OBJ = $(CFILES:.c=.o)
 

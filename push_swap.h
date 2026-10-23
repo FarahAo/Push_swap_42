@@ -6,7 +6,7 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:51:19 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/23 10:18:49 by tuqa134          ###   ########.fr       */
+/*   Updated: 2026/10/23 16:09:09 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_node
 typedef struct s_stack
 {
 	struct s_node	*head;
+	long	 size;
 }	t_stack;
 typedef enum e_strategy
 {
@@ -84,5 +85,6 @@ int					is_duplicate(t_node *stack, int val);
 int					strnncmp(char *s1, char *s2);
 int     			parse_atoi(const char *str, int *value);
 double				compute_disorder(t_stack *a);
-
+void    parse_args(int argc, char **argv,t_options *options);
+void    print_bench(t_options *option);
 #endif

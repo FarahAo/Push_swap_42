@@ -6,11 +6,11 @@
 /*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 13:36:28 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/10/17 12:23:12 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/23 17:11:59 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	swap(t_stack *p)
 {
