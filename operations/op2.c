@@ -14,7 +14,7 @@
 
 void	ra(t_options *option)
 {
-	if (!option || !option->a.head || !option->a.head->next)
+	if (!option || !option->a->head || !option->a->head->next)
 		return ;
 	rotate(&option->a);
 	write(1, "ra\n", 3);
@@ -23,7 +23,7 @@ void	ra(t_options *option)
 
 void	rb(t_options *option)
 {
-	if (!option || !option->b.head || !option->b.head->next)
+	if (!option || !option->b->head || !option->b->head->next)
 		return ;
 	rotate(&option->b);
 	write(1, "rb\n", 3);

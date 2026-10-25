@@ -50,7 +50,7 @@ static void	add_to_stack(char *num, t_options *options)
 
 	if (parse_atoi(num, &number))
 	{
-		if (is_duplicate(options->a.head, number))
+		if (is_duplicate(options->a->head, number))
 			print_error(options);
 	}
 	else

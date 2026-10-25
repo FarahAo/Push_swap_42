@@ -14,7 +14,7 @@
 
 void	rra(t_options *option)
 {
-	if (!option || !option->a.head || !option->a.head->next)
+	if (!option || !option->a->head || !option->a->head->next)
 		return ;
 	reverse_rotate(&option->a);
 	write(1, "rra\n", 4);
@@ -23,7 +23,7 @@ void	rra(t_options *option)
 
 void	rrb(t_options *option)
 {
-	if (!option || !option->b.head || !option->b.head->next)
+	if (!option || !option->b->head || !option->b->head->next)
 		return ;
 	reverse_rotate(&option->b);
 	write(1, "rrb\n", 4);
@@ -34,9 +34,9 @@ void	rrr(t_options *option)
 {
 	if (!option)
 		return ;
-	if (option->a.head && option->a.head->next)
+	if (option->a->head && option->a->head->next)
 		reverse_rotate(&option->a);
-	if (option->b.head && option->b.head->next)
+	if (option->b->head && option->b->head->next)
 		reverse_rotate(&option->b);
 	write(1, "rrr\n", 4);
 	option->counter[RRR]++;

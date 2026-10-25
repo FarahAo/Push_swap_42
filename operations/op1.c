@@ -12,31 +12,31 @@
 
 #include "../push_swap.h"
 
-void	swap_sa(t_options *option)
+void	sa(t_options *option)
 {
-	if (!option || !option->a.head || !option->a.head->next)
+	if (!option || !option->a->head || !option->a->head->next)
 		return ;
 	swap(&option->a);
 	write(1, "sa\n", 3);
 	option->counter[SA]++;
 }
 
-void	swap_sb(t_options *option)
+void	sb(t_options *option)
 {
-	if (!option || !option->b.head || !option->b.head->next)
+	if (!option || !option->b->head || !option->b->head->next)
 		return ;
 	swap(&option->b);
 	write(1, "sb\n", 3);
 	option->counter[SB]++;
 }
 
-void	swap_ss(t_options *option)
+void	ss(t_options *option)
 {
 	if (!option)
 		return ;
-	if (option->a.head && option->a.head->next)
+	if (option->a->head && option->a->head->next)
 		swap(&option->a);
-	if (option->b.head && option->b.head->next)
+	if (option->b->head && option->b->head->next)
 		swap(&option->b);
 	write(1, "ss\n", 3);
 	option->counter[SS]++;

@@ -54,8 +54,8 @@ typedef enum e_op_counts
 }	t_opcounts;
 typedef struct s_options
 {
-	t_stack  a;
-	t_stack  b;
+	t_stack  *a;
+	t_stack  *b;
 	t_strategy	strategy;
 	int			bench;
 	double disorder;
@@ -65,9 +65,9 @@ typedef struct s_options
 t_node				*new_node(int value);
 void				add_node(t_stack *lst, t_node *new);
 void				print_stack(t_node *a);
-void	swap_sa(t_options *option);
-void	swap_sb(t_options *option);
-void	swap_ss(t_options *option);
+void	sa(t_options *option);
+void	sb(t_options *option);
+void	ss(t_options *option);
 void	pa(t_options *option);
 void	pb(t_options *option);
 void	ra(t_options *option);
