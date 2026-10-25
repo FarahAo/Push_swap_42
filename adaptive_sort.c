@@ -18,7 +18,7 @@ void  adaptive(t_options *options)
 	options->disorder = compute_disorder(&options->a);
 
 	if (options->disorder == 0.0)
-		return;
+		return ;
 	if (options->disorder < 0.2)
 		simple_sort(options);
 	else if (options->disorder < 0.5)
