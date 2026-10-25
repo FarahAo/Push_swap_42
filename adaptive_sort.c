@@ -20,7 +20,7 @@ void  adaptive(t_options *options)
 	if (options->disorder == 0.0)
 		return ;
 	if (options->disorder < 0.2)
-		simple_sort(options->a, options->b);
+		selection_sort(options);
 	else if (options->disorder < 0.5)
 		medium_sort(options->a, options->b);
 	else if(options->disorder >= 0.5)
