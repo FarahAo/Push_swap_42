@@ -6,11 +6,11 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/28 18:48:28 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/29 02:27:36 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	is_valid_number(const char *number)
 {

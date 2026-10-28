@@ -6,11 +6,11 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 18:53:04 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/29 02:01:04 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/29 02:29:12 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	adaptive(t_options *options)
 {

@@ -6,11 +6,11 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 17:07:50 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/23 15:14:26 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/29 02:29:04 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static double	calculate_disorder(t_node *current, long size)
 {

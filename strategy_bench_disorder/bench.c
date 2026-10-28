@@ -1,6 +1,4 @@
-#include "push_swap.h"
-
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	print_op_counts(t_options *option)
 {

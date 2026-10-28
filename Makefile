@@ -6,15 +6,17 @@
 #    By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/13 16:37:21 by fabo-ome          #+#    #+#              #
-#    Updated: 2026/10/23 17:10:29 by tkhaleel         ###   ########.fr        #
+#    Updated: 2026/10/29 02:33:57 by fabo-ome         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-CFILES =  push_swap_helpers.c input.c parsing_helpers.c disorder.c \
-	  bench.c operations/op1.c operations/op2.c operations/op3.c \
-	  operations/opss.c selection_sort.c startegy_selector.c
+CFILES =  opertaions/op1.c operations/op2.c operations/op3.c \
+	operations\operation_utils.c parsing\parsing.c parsing\parsing_utils.c \
+	strategy_bench_disorder/bench.c strategy_bench_disorder/disorder.c \
+	strategy_bench_disorder/strategy_selector.c selection_sort.c stack_utils.c \
+	
 
 OBJ = $(CFILES:.c=.o)
 

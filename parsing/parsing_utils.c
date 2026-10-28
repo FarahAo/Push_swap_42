@@ -6,11 +6,11 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 16:56:29 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/29 02:14:43 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/29 02:27:49 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	free_split(char **res)
 {
