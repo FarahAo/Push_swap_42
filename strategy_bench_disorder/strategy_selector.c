@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adaptive_sort.c                                    :+:      :+:    :+:   */
+/*   strategy_selector.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/23 17:56:17 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/10/28 15:50:47 by fabo-ome         ###   ########.fr       */
+/*   Created: 2026/10/28 18:53:04 by fabo-ome          #+#    #+#             */
+/*   Updated: 2026/10/29 02:01:04 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
-void  adaptive(t_options *options)
+static void	adaptive(t_options *options)
 {
 	if (!options)
-		return ;	
+		return ;
 	options->disorder = compute_disorder(options->a);
-
 	if (options->disorder == 0.0)
 		return ;
 	if (options->disorder < 0.2)
 		selection_sort(options);
-/*	else if (options->disorder < 0.5)
+	else if (options->disorder < 0.5)
 		medium_sort(options->a, options->b);
-	else if(options->disorder >= 0.5)
+	else if (options->disorder >= 0.5)
 		complex_sort(options->a, options->b);
-		*/
+}
+
+void	startegy_selector(t_options *options)
+{
+	if (options->strategy == SIMPLE)
+		selection_sort(options);
+	/*	else if (options->startegy == MEDIUM) 
+		else if (options->startegy == COMPLEX) */
+	else if (options->startegy == ADAPTIVE)
+		adaptive(options);
 }

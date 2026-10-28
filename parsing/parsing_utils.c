@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_helpers.c                                  :+:      :+:    :+:   */
+/*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 16:56:29 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/22 15:57:59 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/29 02:14:43 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	parse_atoi(const char *str, int *value)
 	return (1);
 }
 
-static void	add_to_stack(char *num, t_options *options)
+void	add_to_stack(char *num, t_options *options)
 {
 	t_node	*newnode;
 	int		number;
