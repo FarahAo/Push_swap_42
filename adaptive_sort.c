@@ -6,7 +6,7 @@
 /*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 17:56:17 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/10/23 18:10:14 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/28 15:50:47 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -15,14 +15,15 @@ void  adaptive(t_options *options)
 {
 	if (!options)
 		return ;	
-	options->disorder = compute_disorder(&options->a);
+	options->disorder = compute_disorder(options->a);
 
 	if (options->disorder == 0.0)
 		return ;
 	if (options->disorder < 0.2)
 		selection_sort(options);
-	else if (options->disorder < 0.5)
+/*	else if (options->disorder < 0.5)
 		medium_sort(options->a, options->b);
 	else if(options->disorder >= 0.5)
 		complex_sort(options->a, options->b);
+		*/
 }

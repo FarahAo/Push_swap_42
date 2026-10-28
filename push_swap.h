@@ -6,7 +6,7 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:51:19 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/23 16:09:09 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/28 16:29:44 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ typedef struct s_options
 
 t_node				*new_node(int value);
 void				add_node(t_stack *lst, t_node *new);
-void				print_stack(t_node *a);
+void				print_stack(t_stack *a);
 void	sa(t_options *option);
 void	sb(t_options *option);
 void	ss(t_options *option);
@@ -87,4 +87,8 @@ int     			parse_atoi(const char *str, int *value);
 double				compute_disorder(t_stack *a);
 void    parse_args(int argc, char **argv,t_options *options);
 void    print_bench(t_options *option);
+void selection_sort(t_options *options);
+void    startegy_selector(t_options *options);
+
+
 #endif

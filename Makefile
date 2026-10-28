@@ -12,9 +12,9 @@
 
 NAME = push_swap
 
-CFILES =  push_swap_helpers.c input.c parsing_helpers.c disorder.c main.c\
+CFILES =  push_swap_helpers.c input.c parsing_helpers.c disorder.c \
 	  bench.c operations/op1.c operations/op2.c operations/op3.c \
-	  operations/opss.c
+	  operations/opss.c selection_sort.c startegy_selector.c
 
 OBJ = $(CFILES:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 10:20:39 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/23 17:11:28 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/28 15:45:59 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sa(t_options *option)
 {
 	if (!option || !option->a->head || !option->a->head->next)
 		return ;
-	swap(&option->a);
+	swap(option->a);
 	write(1, "sa\n", 3);
 	option->counter[SA]++;
 }
@@ -25,7 +25,7 @@ void	sb(t_options *option)
 {
 	if (!option || !option->b->head || !option->b->head->next)
 		return ;
-	swap(&option->b);
+	swap(option->b);
 	write(1, "sb\n", 3);
 	option->counter[SB]++;
 }
@@ -35,9 +35,9 @@ void	ss(t_options *option)
 	if (!option)
 		return ;
 	if (option->a->head && option->a->head->next)
-		swap(&option->a);
+		swap(option->a);
 	if (option->b->head && option->b->head->next)
-		swap(&option->b);
+		swap(option->b);
 	write(1, "ss\n", 3);
 	option->counter[SS]++;
 }
@@ -50,8 +50,8 @@ void	pa(t_options *option)
 
 	if (!option)
 		return ;
-	a = &option->a;
-	b = &option->b;
+	a = option->a;
+	b = option->b;
 	if (!b->head)
 		return ;
 	tmp = b->head;
@@ -72,8 +72,8 @@ void	pb(t_options *option)
 
 	if (!option)
 		return ;
-	a = &option->a;
-	b = &option->b;
+	a = option->a;
+	b = option->b;
 	if (!a->head)
 		return ;
 	tmp = a->head;

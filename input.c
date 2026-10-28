@@ -6,7 +6,7 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/23 17:32:32 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/28 18:48:28 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static void	print_error(t_options *options)
 {
 	if (options)
 	{
-		free_stack(&options->a);
-		free_stack(&options->b);
+		free_stack(options->a);
+		free_stack(options->b);
 	}
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
@@ -58,7 +58,7 @@ static void	add_to_stack(char *num, t_options *options)
 	newnode = new_node(number);
 	if (!newnode)
 		print_error(options);
-	add_node(&options->a, newnode);
+	add_node(options->a, newnode);
 }
 
 static void	parse_flags(char **arr, char *res, t_options *options)
@@ -114,15 +114,21 @@ void	parse_args(int argc, char **argv,t_options *options)
 
 int	main(int argc, char **argv)
 {
-	t_options	options;
+	t_options	*options;
 
-	options = (t_options){0};
-	options.strategy = ADAPTIVE;
+	options = &(t_options){0};
+	options->a = malloc(sizeof(t_stack));
+	options->b = malloc(sizeof(t_stack));
+	
+	options->strategy = ADAPTIVE;
 	if (argc > 1)
 	{
-		parse_args(argc, argv, &(options));
+		parse_args(argc, argv, options);
 		//free_stack(&option.b)
+		if (!compute_disorder(options->a))
+			return (0);
+		startegy_selector(options);
 	}
-	free_stack(&options.a);
+	free_stack(options->a);
 	return (0);
 } 
