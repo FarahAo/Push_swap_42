@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
 void	printf_conversion(int fd, char c, va_list *args, int *counter)
 {
 	if (c == 'c')

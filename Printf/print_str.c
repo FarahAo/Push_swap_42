@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	print_str(int fd,char *str)
+int	print_str(int fd, char *str)
 {
 	int	i;
 

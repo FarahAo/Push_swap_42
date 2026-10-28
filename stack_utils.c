@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_helpers.c                                :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:56:33 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/28 16:33:34 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/29 01:28:28 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -23,23 +23,23 @@ t_node	*new_node(int value)
 	return (node);
 }
 
-void    add_node(t_stack *stack, t_node *new)
+void	add_node(t_stack *stack, t_node *new)
 {
-        t_node  *current;
+	t_node	*current;
 
-        if (!stack || !new)
-                return ;
-        new->next = NULL;
-        if (!stack->head)
-                stack->head = new;
-        else
-        {
-                current = stack->head;
-                while (current->next)
-                        current = current->next;
-                current->next = new;
-        }
-        stack->size++;
+	if (!stack || !new)
+		return ;
+	new->next = NULL;
+	if (!stack->head)
+		stack->head = new;
+	else
+	{
+		current = stack->head;
+		while (current->next)
+			current = current->next;
+		current->next = new;
+	}
+	stack->size++;
 }
 /*void	print_stack(t_options *options)
 {

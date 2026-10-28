@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	print_unbr(int fd,unsigned int n)
+int	print_unbr(int fd, unsigned int n)
 {
 	int	count;
 
 	count = 0;
 	if (n > 9)
-		count += print_unbr(fd,n / 10);
-	count += print_char(fd,(n % 10) + '0');
+		count += print_unbr(fd, n / 10);
+	count += print_char(fd, (n % 10) + '0');
 	return (count);
 }

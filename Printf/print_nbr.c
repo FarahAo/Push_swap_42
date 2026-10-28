@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	print_nbr(int fd,int n)
+int	print_nbr(int fd, int n)
 {
 	long	nb;
 	int		count;
@@ -20,11 +20,11 @@ int	print_nbr(int fd,int n)
 	count = 0;
 	if (nb < 0)
 	{
-		count += print_char(fd,'-');
+		count += print_char(fd, '-');
 		nb = -nb;
 	}
 	if (nb > 9)
 		count += print_nbr(fd, nb / 10);
-	count += print_char(fd,(nb % 10) + '0');
+	count += print_char(fd, (nb % 10) + '0');
 	return (count);
 }

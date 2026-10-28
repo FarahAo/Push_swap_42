@@ -52,7 +52,7 @@ static void	bring_to_top(int min_position, t_options *options)
 		}
 	}
 	else
-	{	
+	{
 		while (i < min_position)
 		{
 			ra(options);
@@ -60,23 +60,24 @@ static void	bring_to_top(int min_position, t_options *options)
 		}
 	}
 }
+
 void	selection_sort(t_options *options)
 {
-	if (options->a->size ==  2)
+	t_node	*current;
+	int		min_position;
+
+	if (options->a->size == 2)
 	{
 		sa(options);
 		return ;
 	}
 	while (options->a->size)
 	{
-		t_node *current;
-		int	min_position;
-	
 		current = options->a->head;
 		min_position = find_min(current);
 		bring_to_top(min_position, options);
 		pb(options);
 	}
-    while (options->b->size > 0)
-	    pa(options);
+	while (options->b->size > 0)
+		pa(options);
 }

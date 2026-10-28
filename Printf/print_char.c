@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-int	print_char(int fd,char c)
+
+int	print_char(int fd, char c)
 {
 	write(fd, &c, 1);
 	return (1);

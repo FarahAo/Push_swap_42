@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input.c                                            :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -43,24 +43,6 @@ static void	print_error(t_options *options)
 	exit(EXIT_FAILURE);
 }
 
-static void	add_to_stack(char *num, t_options *options)
-{
-	t_node	*newnode;
-	int		number;
-
-	if (parse_atoi(num, &number))
-	{
-		if (is_duplicate(options->a->head, number))
-			print_error(options);
-	}
-	else
-		print_error(options);
-	newnode = new_node(number);
-	if (!newnode)
-		print_error(options);
-	add_node(options->a, newnode);
-}
-
 static void	parse_flags(char **arr, char *res, t_options *options)
 {
 	if (strnncmp(res, "--bench") == 0)
@@ -80,7 +62,27 @@ static void	parse_flags(char **arr, char *res, t_options *options)
 	}
 }
 
-void	parse_args(int argc, char **argv,t_options *options)
+static void	process_args(char **res, t_options *options)
+{
+	int	j;
+
+	j = 0;
+	while (res[j])
+	{
+		if (res[j][0] == '-' && res[j][1] == '-')
+			parse_flags(res, res[j], options);
+		else if (is_valid_number(res[j]))
+			add_to_stack(res[j], options);
+		else
+		{
+			free_split(res);
+			print_error(options);
+		}
+		j++;
+	}
+}
+
+void	parse_args(int argc, char **argv, t_options *options)
 {
 	char			**res;
 	int				i;
@@ -93,42 +95,27 @@ void	parse_args(int argc, char **argv,t_options *options)
 		if (!res)
 			print_error(options);
 		j = 0;
-		while (res[j])
-		{
-			if (res[j][0] == '-' && res[j][1] == '-')
-				parse_flags(res,res[j], options);
-			else
-				if (is_valid_number(res[j]))
-					add_to_stack(res[j], options);
-				else
-				{
-					free_split(res);
-					print_error(options);
-				}
-			j++;
-		}
+		process_args(res, options);
 		free_split(res);
 		i++;
 	}
 }
 
-int	main(int argc, char **argv)
+/*int	main(int argc, char **argv)
 {
 	t_options	*options;
 
 	options = &(t_options){0};
 	options->a = malloc(sizeof(t_stack));
-	options->b = malloc(sizeof(t_stack));
-	
+	options->b = malloc(sizeof(t_stack));	
 	options->strategy = ADAPTIVE;
 	if (argc > 1)
 	{
 		parse_args(argc, argv, options);
-		//free_stack(&option.b)
 		if (!compute_disorder(options->a))
 			return (0);
 		startegy_selector(options);
 	}
 	free_stack(options->a);
 	return (0);
-} 
+}*/
