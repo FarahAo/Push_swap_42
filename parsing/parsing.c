@@ -6,7 +6,7 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/29 02:27:36 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/29 10:22:10 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,6 @@ static int	is_valid_number(const char *number)
 		i++;
 	}
 	return (1);
-}
-
-static void	print_error(t_options *options)
-{
-	if (options)
-	{
-		free_stack(options->a);
-		free_stack(options->b);
-	}
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
 }
 
 static void	parse_flags(char **arr, char *res, t_options *options)
@@ -84,38 +73,20 @@ static void	process_args(char **res, t_options *options)
 
 void	parse_args(int argc, char **argv, t_options *options)
 {
-	char			**res;
-	int				i;
-	int				j;
+	char	**res;
+	int		i;
 
 	i = 1;
 	while (i < argc)
 	{
 		res = ft_split(argv[i], ' ');
-		if (!res)
+		if (!res || !res[0])
+		{
+			free_split(res);
 			print_error(options);
-		j = 0;
+		}
 		process_args(res, options);
 		free_split(res);
 		i++;
 	}
 }
-
-/*int	main(int argc, char **argv)
-{
-	t_options	*options;
-
-	options = &(t_options){0};
-	options->a = malloc(sizeof(t_stack));
-	options->b = malloc(sizeof(t_stack));	
-	options->strategy = ADAPTIVE;
-	if (argc > 1)
-	{
-		parse_args(argc, argv, options);
-		if (!compute_disorder(options->a))
-			return (0);
-		startegy_selector(options);
-	}
-	free_stack(options->a);
-	return (0);
-}*/

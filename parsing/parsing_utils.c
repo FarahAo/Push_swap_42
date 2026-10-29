@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 16:56:29 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/29 02:27:49 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/29 09:44:45 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	is_duplicate(t_node *stack, int val)
 {
 	while (stack)
 	{
-		if (stack ->value == val)
+		if (stack->value == val)
 			return (1);
 		stack = stack->next;
 	}
@@ -50,9 +50,9 @@ int	strnncmp(char *s1, char *s2)
 
 int	parse_atoi(const char *str, int *value)
 {
-	long		num;
-	int			sign;
-	int			i;
+	long	num;
+	int		sign;
+	int		i;
 
 	num = 0;
 	sign = 1;
@@ -67,8 +67,8 @@ int	parse_atoi(const char *str, int *value)
 	while (str[i])
 	{
 		num = (num * 10) + (str[i] - '0');
-		if ((sign == 1 && num > 2147483647L)
-			|| (sign == -1 && num > 2147483648L))
+		if ((sign == 1 && num > 2147483647L) || (sign == -1
+				&& num > 2147483648L))
 			return (0);
 		i++;
 	}

@@ -1,15 +1,25 @@
-#include "../push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bench.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/29 11:04:39 by tkhaleel          #+#    #+#             */
+/*   Updated: 2026/10/29 11:04:43 by tkhaleel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
 
 static void	print_op_counts(t_options *option)
 {
 	ft_printf(2, "[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
-		option->counter[SA], option->counter[SB],
-		option->counter[SS], option->counter[PA],
-		option->counter[PB]);
+		option->counter[SA], option->counter[SB], option->counter[SS],
+		option->counter[PA], option->counter[PB]);
 	ft_printf(2, "[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
-		option->counter[RA], option->counter[RB],
-		option->counter[RR], option->counter[RRA],
-		option->counter[RRB], option->counter[RRR]);
+		option->counter[RA], option->counter[RB], option->counter[RR],
+		option->counter[RRA], option->counter[RRB], option->counter[RRR]);
 }
 
 static void	print_strategy(t_options *option)
@@ -18,7 +28,7 @@ static void	print_strategy(t_options *option)
 	if (option->strategy == SIMPLE)
 		ft_printf(2, "Simple /  O(n²)\n");
 	else if (option->strategy == MEDIUM)
-		ft_printf(2, "Medium / O(n√n))\n");
+		ft_printf(2, "Medium / O(n√n)\n");
 	else if (option->strategy == COMPLEX)
 		ft_printf(2, "Complex / O(n log n)\n");
 	else if (option->disorder < 0.2)

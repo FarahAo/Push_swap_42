@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:56:33 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/29 01:28:28 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/29 11:06:55 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -41,20 +41,9 @@ void	add_node(t_stack *stack, t_node *new)
 	}
 	stack->size++;
 }
-/*void	print_stack(t_options *options)
-{
-	while (options->a)
-	{
-		printf("%d\n", options->a->value);
-		options->a = options->a->next;
-	}
-}*/
 
 void	free_stack(t_stack *stack)
 {
-	t_node	*current;
-	t_node	*nextn;
-
 	if (!stack)
 		return ;
 	current = stack->head;

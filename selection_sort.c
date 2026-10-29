@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 15:57:08 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/28 18:41:55 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/29 10:08:37 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,11 @@ void	selection_sort(t_options *options)
 
 	if (options->a->size == 2)
 	{
-		sa(options);
+		if (options->a->head->value > options->a->head->next->value)
+			sa(options);
 		return ;
 	}
-	while (options->a->size)
+	while (options->a->size > 1)
 	{
 		current = options->a->head;
 		min_position = find_min(current);

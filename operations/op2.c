@@ -6,7 +6,7 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 11:47:00 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/10/28 15:46:27 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/29 10:12:57 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ void	rb(t_options *option)
 
 void	rr(t_options *option)
 {
-	if (!option)
+	if (!option || !option->a || !option->b)
+		return ;
+	if (option->a->size < 2 && option->b->size < 2)
 		return ;
 	rotate(option->a);
 	rotate(option->b);
