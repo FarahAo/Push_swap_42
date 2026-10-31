@@ -6,7 +6,7 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:51:19 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/29 09:46:34 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/10/31 11:37:39 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_node
 typedef struct s_stack
 {
 	struct s_node	*head;
-	long			size;
+	int			size; // size data type was long idk why i changed it to int 
 }					t_stack;
 typedef enum e_strategy
 {
