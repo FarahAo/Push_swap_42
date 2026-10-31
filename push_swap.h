@@ -20,6 +20,7 @@
 typedef struct s_node
 {
 	int				value;
+	int             index;
 	struct s_node	*next;
 }					t_node;
 
@@ -89,5 +90,6 @@ double				compute_disorder(t_stack *a);
 void				startegy_selector(t_options *options);
 void				selection_sort(t_options *options);
 void				print_error(t_options *options);
+void    assign_indexes(t_node *head);
 
 #endif

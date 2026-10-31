@@ -19,6 +19,7 @@ t_node	*new_node(int value)
 	if (!node)
 		return (NULL);
 	node->value = value;
+	node->index = -1;
 	node->next = NULL;
 	return (node);
 }
@@ -44,6 +45,9 @@ void	add_node(t_stack *stack, t_node *new)
 
 void	free_stack(t_stack *stack)
 {
+	t_node  *current;
+	t_node  *nextn;
+
 	if (!stack)
 		return ;
 	current = stack->head;

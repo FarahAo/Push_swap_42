@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-
+/*
 int	main(int argc, char **argv)
 {
 	t_options	options;
@@ -35,3 +35,4 @@ int	main(int argc, char **argv)
 	free_stack(&b);
 	return (0);
 }
+*/
