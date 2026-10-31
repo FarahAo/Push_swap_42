@@ -6,7 +6,7 @@
 /*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:51:19 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/31 11:37:39 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/10/31 18:36:53 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,9 @@ void				startegy_selector(t_options *options);
 void				selection_sort(t_options *options);
 void				print_error(t_options *options);
 void    assign_indexes(t_node *head);
+void	radix_sort(t_options *options);
+void	chunk_sort(t_options *options);
+
+
 
 #endif
