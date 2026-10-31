@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tuqa134 <tkhaleel@learner.42.tech>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
 /*   Updated: 2026/10/29 10:22:10 by tkhaleel         ###   ########.fr       */
