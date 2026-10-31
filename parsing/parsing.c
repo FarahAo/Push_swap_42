@@ -51,6 +51,7 @@ static void	parse_flags(char **arr, char *res, t_options *options)
 	}
 }
 
+
 static void	process_args(char **res, t_options *options)
 {
 	int	j;
@@ -60,9 +61,8 @@ static void	process_args(char **res, t_options *options)
 	{
 		if (res[j][0] == '-' && res[j][1] == '-')
 			parse_flags(res, res[j], options);
-		else if (is_valid_number(res[j]))
-			add_to_stack(res[j], options);
-		else
+		else if (!is_valid_number(res[j])
+			|| !add_to_stack(res[j], options))
 		{
 			free_split(res);
 			print_error(options);
@@ -70,6 +70,7 @@ static void	process_args(char **res, t_options *options)
 		j++;
 	}
 }
+
 
 void	parse_args(int argc, char **argv, t_options *options)
 {

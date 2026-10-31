@@ -12,30 +12,33 @@
 
 NAME = push_swap
 
-CFILES =  opertaions/op1.c operations/op2.c operations/op3.c \
-	operations\operation_utils.c parsing\parsing.c parsing\parsing_utils.c \
-	strategy_bench_disorder/bench.c strategy_bench_disorder/disorder.c \
-	strategy_bench_disorder/strategy_selector.c selection_sort.c stack_utils.c \
-	
-
-OBJ = $(CFILES:.c=.o)
-
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I.
 
-%.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+SRC = main.c chunk_sort.c radix_sort.c selection_sort.c stack_utils.c \
+      operations/op1.c operations/op2.c operations/op3.c operations/operation_utils.c \
+      parsing/parsing.c parsing/parsing_utils.c parsing/error.c \
+      strategy_bench_disorder/strategy_selector.c \
+      strategy_bench_disorder/disorder.c strategy_bench_disorder/bench.c
+
+OBJ = $(SRC:.c=.o)
+
 LIBFT_DIR = Libft
+
 LIBFT = $(LIBFT_DIR)/libft.a
 
 PRINTF_DIR = Printf
+
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(PRINTF) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) -o $(NAME)
+$(NAME): $(OBJ) $(LIBFT) $(PRINTF)
+	$(CC) $(CFLAGS) $(OBJ) $(PRINTF) $(LIBFT) -o $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
@@ -56,3 +59,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+

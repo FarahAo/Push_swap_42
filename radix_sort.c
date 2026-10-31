@@ -9,30 +9,7 @@
 /*   Updated: 2026/10/31 18:31:56 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-static void	ranking(t_options *options)
-{
-	t_node	*current;
-	t_node	*tmp;
-	int		index;
-
-	if (!options || !options->a)
-		return ;
-	current = options->a->head;
-	while (current)
-	{
-		tmp = current;
-		index = 0;
-		while (tmp)
-		{
-			if (current->value > tmp->value)
-				index++;
-			tmp = tmp->next;
-		}
-		current->index = index;
-		current = current->next;
-	}
-}
+#include "push_swap.h"
 
 static int	get_max_bits(int biggest_index)
 {
@@ -71,6 +48,7 @@ void	radix_sort(t_options *options)
 	size = options->a->size;
 	if (size < 2)
 		return ;
+	assign_indexes(options->a->head);
 	if (size == 2)
 	{
 		sa(options);
@@ -80,7 +58,6 @@ void	radix_sort(t_options *options)
 	shift = 0;
 	while (max_bits)
 	{
-		i = 0;
 		pass_index(size, shift, options);
 		while (options->b->size > 0)
 			pa(options);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	print_op_counts(t_options *option)
 {
@@ -34,7 +34,7 @@ static void	print_strategy(t_options *option)
 	else if (option->disorder < 0.2)
 		ft_printf(2, "Adaptive /  O(n²)\n");
 	else if (option->disorder < 0.5)
-		ft_printf(2, "Adaptive / O(n√n))\n");
+		ft_printf(2, "Adaptive / O(n√n)\n");
 	else
 		ft_printf(2, "Adaptive / O(n log n)\n");
 }

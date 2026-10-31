@@ -10,29 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-/*
+
 int	main(int argc, char **argv)
 {
 	t_options	options;
 	t_stack		a;
 	t_stack		b;
 
+	if (argc == 1)
+		return (0);
 	options = (t_options){0};
 	a = (t_stack){0};
 	b = (t_stack){0};
 	options.a = &a;
 	options.b = &b;
 	options.strategy = ADAPTIVE;
-	if (argc > 1)
-	{
-		parse_args(argc, argv, &options);
-		if (!compute_disorder(options->a))
-			return (0) ;
-		startegy_selector(&options);
-		print_bench(&options);
-	}
+	parse_args(argc, argv, &options);
+	if (a.size == 0)
+		print_error(&options);
+	startegy_selector(&options);
+	print_bench(&options);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
 }
-*/
+

@@ -9,7 +9,7 @@
 /*   Updated: 2026/10/29 10:18:09 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	print_error(t_options *options)
 {

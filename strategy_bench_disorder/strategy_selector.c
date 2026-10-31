@@ -14,15 +14,11 @@
 
 static void	adaptive(t_options *options)
 {
-	if (!options)
-		return ;
-	if (options->disorder == 0.0)
-		return ;
 	if (options->disorder < 0.2)
 		selection_sort(options);
-	(options->disorder < 0.5)
+	else if (options->disorder < 0.5)
 		chunk_sort(options);
-	else if (options->disorder >= 0.5)
+	else
 		radix_sort(options);
 }
 
@@ -33,9 +29,9 @@ void	startegy_selector(t_options *options)
 		return ;
 	if (options->strategy == SIMPLE)
 		selection_sort(options);
-	else if (options->startegy == MEDIUM)
+	else if (options->strategy == MEDIUM)
 		chunk_sort(options);
-	else if (options->startegy == COMPLEX)
+	else if (options->strategy == COMPLEX)
 		radix_sort(options);
 	else if (options->strategy == ADAPTIVE)
 		adaptive(options);

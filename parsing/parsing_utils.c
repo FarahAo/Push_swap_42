@@ -76,20 +76,20 @@ int	parse_atoi(const char *str, int *value)
 	return (1);
 }
 
-void	add_to_stack(char *num, t_options *options)
+
+int	add_to_stack(char *num, t_options *options)
 {
 	t_node	*newnode;
 	int		number;
 
-	if (parse_atoi(num, &number))
-	{
-		if (is_duplicate(options->a->head, number))
-			print_error(options);
-	}
-	else
-		print_error(options);
+	if (!parse_atoi(num, &number))
+		return (0);
+	if (is_duplicate(options->a->head, number))
+		return (0);
 	newnode = new_node(number);
 	if (!newnode)
-		print_error(options);
+		return (0);
 	add_node(options->a, newnode);
+	return (1);
 }
+
