@@ -16,7 +16,7 @@ void	*ft_calloc(size_t n, size_t size)
 	void	*res;
 	size_t	total;
 
-	if (size != 0 && n > (size_t) -1 / size)
+	if (size != 0 && n > (size_t)-1 / size)
 		return (NULL);
 	total = n * size;
 	res = malloc(total);

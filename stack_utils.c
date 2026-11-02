@@ -45,8 +45,8 @@ void	add_node(t_stack *stack, t_node *new)
 
 void	free_stack(t_stack *stack)
 {
-	t_node  *current;
-	t_node  *nextn;
+	t_node	*current;
+	t_node	*nextn;
 
 	if (!stack)
 		return ;

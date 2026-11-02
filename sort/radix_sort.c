@@ -11,6 +11,26 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
+void	assign_indexes(t_node *head)
+{
+	t_node	*current;
+	t_node	*compare;
+
+	current = head;
+	while (current)
+	{
+		current->index = 0;
+		compare = head;
+		while (compare)
+		{
+			if (compare->value < current->value)
+				current->index++;
+			compare = compare->next;
+		}
+		current = current->next;
+	}
+}
+
 static int	get_max_bits(int biggest_index)
 {
 	int	max_bits;

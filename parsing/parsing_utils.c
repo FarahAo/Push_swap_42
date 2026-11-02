@@ -76,7 +76,6 @@ int	parse_atoi(const char *str, int *value)
 	return (1);
 }
 
-
 int	add_to_stack(char *num, t_options *options)
 {
 	t_node	*newnode;
@@ -92,4 +91,3 @@ int	add_to_stack(char *num, t_options *options)
 	add_node(options->a, newnode);
 	return (1);
 }
-

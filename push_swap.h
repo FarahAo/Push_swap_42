@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/13 14:51:19 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/31 18:36:53 by fabo-ome         ###   ########.fr       */
+/*   Created: 2026/10/29 09:46:08 by tkhaleel          #+#    #+#             */
+/*   Updated: 2026/10/29 10:18:09 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,15 @@
 typedef struct s_node
 {
 	int				value;
-	int             index;
+	int				index;
 	struct s_node	*next;
 }					t_node;
 
 typedef struct s_stack
 {
 	struct s_node	*head;
-	int			size; // size data type was long idk why i changed it to int 
+	int				size;
+
 }					t_stack;
 typedef enum e_strategy
 {
@@ -84,15 +85,14 @@ void				free_split(char **res);
 int					is_duplicate(t_node *stack, int val);
 int					strnncmp(char *s1, char *s2);
 int					parse_atoi(const char *str, int *value);
-int	add_to_stack(char *num, t_options *options);void				print_bench(t_options *option);
+int					add_to_stack(char *num, t_options *options);
+void				print_bench(t_options *option);
 double				compute_disorder(t_stack *a);
 void				startegy_selector(t_options *options);
 void				selection_sort(t_options *options);
 void				print_error(t_options *options);
-void    assign_indexes(t_node *head);
-void	radix_sort(t_options *options);
-void	chunk_sort(t_options *options);
-
-
+void				assign_indexes(t_node *head);
+void				radix_sort(t_options *options);
+void				chunk_sort(t_options *options);
 
 #endif
