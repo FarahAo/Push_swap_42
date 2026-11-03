@@ -16,7 +16,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -I.
 
-SRC = main.c chunk_sort.c radix_sort.c selection_sort.c stack_utils.c \
+SRC = main.c sort/chunk_sort.c sort/radix_sort.c sort/selection_sort.c stack_utils.c \
       operations/op1.c operations/op2.c operations/op3.c operations/operation_utils.c \
       parsing/parsing.c parsing/parsing_utils.c parsing/error.c \
       strategy_bench_disorder/strategy_selector.c \

@@ -65,15 +65,17 @@ void	radix_sort(t_options *options)
 	int	max_bits;
 	int	shift;
 
+	if (!options || !options->a)
+		return ;
 	size = options->a->size;
 	if (size < 2)
 		return ;
-	assign_indexes(options->a->head);
 	if (size == 2)
 	{
 		sa(options);
 		return ;
 	}
+	assign_indexes(options->a->head);
 	max_bits = get_max_bits(size - 1);
 	shift = 0;
 	while (max_bits)
