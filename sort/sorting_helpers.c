@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 16:06:58 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/11/04 19:04:21 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/11/04 19:14:57 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	sort_five(t_options *options)
 	t_node	*current;
 	int		min_position;
 
-	if (!options ||!options->a ||!options->b->size)
+	if (!options ||!options->a ||!options->b)
 		return ;
 	while (options->a->size > 3)
 	{
