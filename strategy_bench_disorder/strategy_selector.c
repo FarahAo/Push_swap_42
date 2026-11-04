@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 18:53:04 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/31 18:36:35 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/11/04 16:52:59 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	startegy_selector(t_options *options)
 	options->disorder = compute_disorder(options->a);
 	if (options->disorder == 0.0)
 		return ;
+	if (options->a->size == 3)
+		sort_three(options);
 	if (options->strategy == SIMPLE)
 		selection_sort(options);
 	else if (options->strategy == MEDIUM)

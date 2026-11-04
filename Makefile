@@ -6,7 +6,7 @@
 #    By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/13 16:37:21 by fabo-ome          #+#    #+#              #
-#    Updated: 2026/10/29 02:33:57 by fabo-ome         ###   ########.fr        #
+#    Updated: 2026/11/04 16:47:33 by fabo-ome         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC = main.c sort/chunk_sort.c sort/radix_sort.c sort/selection_sort.c stack_uti
       operations/op1.c operations/op2.c operations/op3.c operations/operation_utils.c \
       parsing/parsing.c parsing/parsing_utils.c parsing/error.c \
       strategy_bench_disorder/strategy_selector.c \
-      strategy_bench_disorder/disorder.c strategy_bench_disorder/bench.c
+      strategy_bench_disorder/disorder.c strategy_bench_disorder/bench.c sort/sorting_helpers.c 
 
 OBJ = $(SRC:.c=.o)
 

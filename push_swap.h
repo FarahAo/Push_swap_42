@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 09:46:08 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/10/29 10:18:09 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/11/04 19:05:14 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int					is_duplicate(t_node *stack, int val);
 int					strnncmp(char *s1, char *s2);
 int					parse_atoi(const char *str, int *value);
 int					add_to_stack(char *num, t_options *options);
+int					find_min(t_node *current);
 void				print_bench(t_options *option);
 double				compute_disorder(t_stack *a);
 void				startegy_selector(t_options *options);
@@ -94,5 +95,8 @@ void				print_error(t_options *options);
 void				assign_indexes(t_node *head);
 void				radix_sort(t_options *options);
 void				chunk_sort(t_options *options);
+void				sort_three(t_options *options);
+void				bring_to_top(int min_position, t_options *options);
+void				sort_five(t_options *options);
 
 #endif
