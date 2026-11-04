@@ -6,13 +6,13 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 15:57:08 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/29 18:23:46 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/11/04 19:00:44 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	find_min(t_node *current)
+int	find_min(t_node *current)
 {
 	int	min_value;
 	int	position;
@@ -34,7 +34,7 @@ static int	find_min(t_node *current)
 	return (min_position);
 }
 
-static void	bring_to_top(int min_position, t_options *options)
+void	bring_to_top(int min_position, t_options *options)
 {
 	int	size;
 	int	res;
@@ -71,13 +71,15 @@ void	selection_sort(t_options *options)
 		sa(options);
 		return ;
 	}
-	while (options->a->size)
+	while (options->a->size > 3)
 	{
 		current = options->a->head;
 		min_position = find_min(current);
 		bring_to_top(min_position, options);
 		pb(options);
 	}
+	if (options->a->size == 3)
+		sort_three(options);
 	while (options->b->size > 0)
 		pa(options);
 }
