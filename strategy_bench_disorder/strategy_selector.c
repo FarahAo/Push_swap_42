@@ -14,7 +14,9 @@
 
 static void	adaptive(t_options *options)
 {
-	if (options->a->size == 3)
+	if (options->a->size == 2)
+		sa(options);
+	else if (options->a->size == 3)
 		sort_three(options);
 	else if (options->a->size == 5)
 		sort_five(options);
