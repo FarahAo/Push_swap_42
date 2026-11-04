@@ -14,7 +14,11 @@
 
 static void	adaptive(t_options *options)
 {
-	if (options->disorder < 0.2)
+	if (options->a->size == 3)
+		sort_three(options);
+	else if (options->a->size == 5)
+		sort_five(options);
+	else if (options->disorder < 0.2)
 		selection_sort(options);
 	else if (options->disorder < 0.5)
 		chunk_sort(options);
@@ -27,8 +31,6 @@ void	startegy_selector(t_options *options)
 	options->disorder = compute_disorder(options->a);
 	if (options->disorder == 0.0)
 		return ;
-	if (options->a->size == 3)
-		sort_three(options);
 	if (options->strategy == SIMPLE)
 		selection_sort(options);
 	else if (options->strategy == MEDIUM)
