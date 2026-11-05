@@ -70,11 +70,6 @@ void	radix_sort(t_options *options)
 	size = options->a->size;
 	if (size < 2)
 		return ;
-	if (size == 2)
-	{
-		sa(options);
-		return ;
-	}
 	assign_indexes(options->a->head);
 	max_bits = get_max_bits(size - 1);
 	shift = 0;

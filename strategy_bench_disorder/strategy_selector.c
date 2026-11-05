@@ -19,8 +19,8 @@ static void	adaptive(t_options *options)
 	else if (options->a->size == 3)
 		sort_three(options);
 	else if (options->a->size == 5)
-		sort_five(options);
-	else if (options->disorder < 0.2)
+		sort_five(options); 
+	else  if (options->disorder < 0.2)
 		selection_sort(options);
 	else if (options->disorder < 0.5)
 		chunk_sort(options);
