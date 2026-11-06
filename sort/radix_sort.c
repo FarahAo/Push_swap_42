@@ -6,10 +6,10 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/31 10:57:41 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/31 18:31:56 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/11/06 13:48:50 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	assign_indexes(t_node *head)
 {

@@ -6,11 +6,11 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 15:57:08 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/11/04 19:00:44 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/11/06 13:49:17 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	find_min(t_node *current)
 {

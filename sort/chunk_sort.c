@@ -6,11 +6,10 @@
 /*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/31 09:46:08 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/11/2 10:18:09 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/11/06 13:48:36 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
-#include <stdio.h>
+#include "../push_swap.h"
 
 static int	get_chunk_size(int size)
 {
