@@ -76,22 +76,16 @@ void	parse_args(int argc, char **argv, t_options *options)
 
 	i = 1;
 	while (i < argc)
-	{	
-
+	{
 		res = ft_split(argv[i], ' ');
 		if (!res)
-				free_split(res);
+			return ;
 		if (!res[0])
 		{
 			free_split(res);
 			i++;
-			continue;
+			continue ;
 		}
-		/*if (!res || !res[0])
-		{
-			free_split(res);
-			print_error(options);
-		} */
 		process_args(res, options);
 		free_split(res);
 		i++;

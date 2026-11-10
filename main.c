@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	options.strategy = ADAPTIVE;
 	parse_args(argc, argv, &options);
 	if (a.size == 0)
-		print_error(&options);
+		return(0);
 	startegy_selector(&options);
 	print_bench(&options);
 	free_stack(&a);
