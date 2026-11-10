@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 18:53:04 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/11/04 16:52:59 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/11/10 16:24:07 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static void	adaptive(t_options *options)
 	else if (options->a->size == 3)
 		sort_three(options);
 	else if (options->a->size == 5)
-		sort_five(options); 
-	else  if (options->disorder < 0.2)
+		sort_five(options);
+	else if (options->disorder < 0.2)
 		selection_sort(options);
 	else if (options->disorder < 0.5)
 		chunk_sort(options);

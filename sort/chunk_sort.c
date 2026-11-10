@@ -79,7 +79,7 @@ static void	push_chunks(t_options *options, int chunk)
 		if (options->a->head->index <= pushed)
 		{
 			pb(options);
-			if (options->b->size > 1)
+			if (options->b->size > 1) // then the second condition worked so we pushed numbers not in order
 				rb(options);
 			pushed++;
 		}

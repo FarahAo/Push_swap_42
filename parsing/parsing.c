@@ -6,7 +6,7 @@
 /*   By: tuqa134 <tkhaleel@learner.42.tech>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/10/29 10:22:10 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/11/10 21:53:12 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,22 @@ void	parse_args(int argc, char **argv, t_options *options)
 
 	i = 1;
 	while (i < argc)
-	{
+	{	
+
 		res = ft_split(argv[i], ' ');
-		if (!res || !res[0])
+		if (!res)
+				free_split(res);
+		if (!res[0])
+		{
+			free_split(res);
+			i++;
+			continue;
+		}
+		/*if (!res || !res[0])
 		{
 			free_split(res);
 			print_error(options);
-		}
+		} */
 		process_args(res, options);
 		free_split(res);
 		i++;
