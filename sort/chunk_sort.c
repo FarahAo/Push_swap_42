@@ -6,7 +6,7 @@
 /*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/31 09:46:08 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/11/06 13:48:36 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/11/11 15:29:44 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../push_swap.h"
@@ -79,7 +79,7 @@ static void	push_chunks(t_options *options, int chunk)
 		if (options->a->head->index <= pushed)
 		{
 			pb(options);
-			if (options->b->size > 1) // then the second condition worked so we pushed numbers not in order
+			if (options->b->size > 1)
 				rb(options);
 			pushed++;
 		}

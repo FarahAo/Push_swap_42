@@ -6,7 +6,7 @@
 #    By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/13 16:37:21 by fabo-ome          #+#    #+#              #
-#    Updated: 2026/11/10 16:34:15 by fabo-ome         ###   ########.fr        #
+#    Updated: 2026/11/11 15:39:00 by fabo-ome         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,26 +35,26 @@ PRINTF = $(PRINTF_DIR)/libftprintf.a
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT) $(PRINTF)
-	$(CC) $(CFLAGS) $(OBJ) $(PRINTF) $(LIBFT) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(PRINTF) $(LIBFT) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) -s -C $(LIBFT_DIR)
 
 $(PRINTF):
-	$(MAKE) -C $(PRINTF_DIR)
+	@$(MAKE) -s -C $(PRINTF_DIR)
 
 clean:
-	rm -f $(OBJ)
-	$(MAKE) clean -C $(LIBFT_DIR)
-	$(MAKE) clean -C $(PRINTF_DIR)
+	@rm -f $(OBJ)
+	@$(MAKE) clean -s -C $(LIBFT_DIR)
+	@$(MAKE) clean -s -C $(PRINTF_DIR)
 
 fclean: clean
-	rm -f $(NAME)
-	$(MAKE) fclean -C $(LIBFT_DIR)
-	$(MAKE) fclean -C $(PRINTF_DIR)
+	@rm -f $(NAME)
+	@$(MAKE) fclean -s -C $(LIBFT_DIR)
+	@$(MAKE) fclean -s -C $(PRINTF_DIR)
 
 re: fclean all
 
