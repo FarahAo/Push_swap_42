@@ -18,15 +18,13 @@ CFLAGS = -Wall -Wextra -Werror -I.
 
 SRC = main.c sort/chunk_sort.c sort/radix_sort.c sort/selection_sort.c stack_utils.c \
       operations/op1.c operations/op2.c operations/op3.c operations/operation_utils.c \
-      parsing/parsing.c parsing/parsing_utils.c parsing/error.c \
+      parsing/parsing.c parsing/parsing_utils.c parsing/error.c parsing/split.c\
       strategy_bench_disorder/strategy_selector.c \
       strategy_bench_disorder/disorder.c strategy_bench_disorder/bench.c sort/sorting_helpers.c 
 
 OBJ = $(SRC:.c=.o)
 
-LIBFT_DIR = Libft
 
-LIBFT = $(LIBFT_DIR)/libft.a
 
 PRINTF_DIR = Printf
 
@@ -34,26 +32,22 @@ PRINTF = $(PRINTF_DIR)/libftprintf.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT) $(PRINTF)
-	@$(CC) $(CFLAGS) $(OBJ) $(PRINTF) $(LIBFT) -o $(NAME)
+$(NAME): $(OBJ) $(PRINTF)
+	@$(CC) $(CFLAGS) $(OBJ) $(PRINTF) -o $(NAME)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(LIBFT):
-	@$(MAKE) -s -C $(LIBFT_DIR)
 
 $(PRINTF):
 	@$(MAKE) -s -C $(PRINTF_DIR)
 
 clean:
 	@rm -f $(OBJ)
-	@$(MAKE) clean -s -C $(LIBFT_DIR)
 	@$(MAKE) clean -s -C $(PRINTF_DIR)
 
 fclean: clean
 	@rm -f $(NAME)
-	@$(MAKE) fclean -s -C $(LIBFT_DIR)
 	@$(MAKE) fclean -s -C $(PRINTF_DIR)
 
 re: fclean all

@@ -12,7 +12,6 @@
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "Libft/libft.h"
 # include "Printf/ft_printf.h"
 # include <stdlib.h>
 # include <unistd.h>
@@ -86,6 +85,7 @@ int					is_duplicate(t_node *stack, int val);
 int					strnncmp(char *s1, char *s2);
 int					parse_atoi(const char *str, int *value);
 int					add_to_stack(char *num, t_options *options);
+char				**ft_split(char const *s, char c);
 int					find_min(t_node *current);
 void				print_bench(t_options *option);
 double				compute_disorder(t_stack *a);

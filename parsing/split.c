@@ -1,15 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 14:18:57 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/09/23 10:20:18 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/11/12 11:36:55 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "../push_swap.h"
 
 static int	is_sep(char c, char sep)
 {
@@ -35,16 +35,6 @@ static int	word_count(char const *s, char sep)
 	return (count);
 }
 
-static void	free_split(char **res, int word)
-{
-	while (word > 0)
-	{
-		word--;
-		free(res[word]);
-	}
-	free(res);
-}
-
 static char	**split_copy(char const *s, char **res, char c)
 {
 	int	i;
@@ -64,7 +54,7 @@ static char	**split_copy(char const *s, char **res, char c)
 			j++;
 		res[word] = malloc(j + 1);
 		if (!res[word])
-			return (free_split(res, word), NULL);
+			return (res = NULL, free_split(res), NULL);
 		j = 0;
 		while (s[i] && !is_sep(s[i], c))
 			res[word][j++] = s[i++];

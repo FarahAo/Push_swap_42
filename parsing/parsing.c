@@ -12,6 +12,13 @@
 
 #include "../push_swap.h"
 
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
+
 static int	is_valid_number(const char *number)
 {
 	int	i;
@@ -79,7 +86,7 @@ void	parse_args(int argc, char **argv, t_options *options)
 	{
 		res = ft_split(argv[i], ' ');
 		if (!res)
-			return ;
+			print_error(options);
 		if (!res[0])
 		{
 			free_split(res);

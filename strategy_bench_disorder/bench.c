@@ -6,7 +6,7 @@
 /*   By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 11:04:39 by tkhaleel          #+#    #+#             */
-/*   Updated: 2026/10/29 11:04:43 by tkhaleel         ###   ########.fr       */
+/*   Updated: 2026/11/12 13:20:10 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,27 @@ static void	print_op_counts(t_options *option)
 static void	print_strategy(t_options *option)
 {
 	ft_printf(2, "[bench] strategy: ");
-	if (option->strategy == SIMPLE)
+	if (option->disorder == 0.0)
+		ft_printf(2, "Sorted\n");
+	else if (option->strategy == SIMPLE)
 		ft_printf(2, "Simple /  O(n²)\n");
 	else if (option->strategy == MEDIUM)
 		ft_printf(2, "Medium / O(n√n)\n");
 	else if (option->strategy == COMPLEX)
 		ft_printf(2, "Complex / O(n log n)\n");
-	else if (option->disorder < 0.2)
-		ft_printf(2, "Adaptive /  O(n²)\n");
-	else if (option->disorder < 0.5)
-		ft_printf(2, "Adaptive / O(n√n)\n");
-	else
-		ft_printf(2, "Adaptive / O(n log n)\n");
+	else if (option->strategy == ADAPTIVE)
+	{
+		if (option->a->size == 3)
+			ft_printf(2, "Sort three\n");
+		else if (option->a->size == 5)
+			ft_printf(2, "Sort five\n");
+		else if (option->disorder < 0.2)
+			ft_printf(2, "Adaptive /  O(n²)\n");
+		else if (option->disorder < 0.5)
+			ft_printf(2, "Adaptive / O(n√n)\n");
+		else
+			ft_printf(2, "Adaptive / O(n log n)\n");
+	}
 }
 
 static void	print_disorder(t_options *option)

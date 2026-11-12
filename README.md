@@ -34,7 +34,7 @@ make fclean   # Remove object files and binaries/libraries
 make re       # Rebuild from scratch
 ```
 
-The project uses `cc` with `-Wall -Wextra -Werror`. It expects the `Libft/` and `Printf/` directories used by the Makefile to be present.
+The project uses `cc` with `-Wall -Wextra -Werror`. It expects the `Printf/` directories used by the Makefile to be present.
 
 ### Run
 
@@ -146,7 +146,7 @@ These correctness results do not establish performance on every input, memory sa
 
 ## Resources
 
-- [42 Push_swap subject](en.subject.pdf) — the authoritative project requirements, allowed operations, strategy targets, benchmark format, and evaluation thresholds. (If the PDF is not committed to the repository, consult the copy provided by 42.)
+- [42 Push_swap subject] the authoritative project requirements, allowed operations, strategy targets, benchmark format, and evaluation thresholds.
 - [GNU Make manual](https://www.gnu.org/software/make/manual/) — build targets and Makefile behavior.
 - [tutorialspoint] (https://www.tutorialspoint.com/) — Understanding the choosen algorithms.
 - [GeeksForGeeks](https://www.geeksforgeeks.org/) — fundamental data structures and algorithm analysis.
@@ -161,4 +161,4 @@ AI tools (ChatGPT) were used as **learning and review assistance**, especially f
 - **tkhaleel** — contributions to parsing, stack operations/utilities, and chunk-based sorting, based on the supplied source-file authorship and revision records.
 - **fabo-ome** — contributions to stack utilities, sorting/operation implementations, radix sorting, and sorting helpers, based on the supplied source-file authorship and revision records.
 
-Both contributors are responsible for understanding and explaining the complete project. **Review and adjust the individual contribution details above to accurately reflect your team's actual work before submission.**
+Both contributors are responsible for understanding and explaining the complete project.
