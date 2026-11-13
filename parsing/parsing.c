@@ -6,7 +6,7 @@
 /*   By: tuqa134 <tkhaleel@learner.42.tech>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:29:10 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/11/10 21:53:12 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/11/12 16:27:16 by tkhaleel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	is_valid_number(const char *number)
 	return (1);
 }
 
-static void	parse_flags(char **arr, char *res, t_options *options)
+static void	parse_flags(char *res, t_options *options)
 {
 	if (strnncmp(res, "--bench") == 0)
 		options->bench = 1;
@@ -52,10 +52,7 @@ static void	parse_flags(char **arr, char *res, t_options *options)
 	else if (strnncmp(res, "--adaptive") == 0)
 		options->strategy = ADAPTIVE;
 	else
-	{
-		free_split(arr);
 		print_error(options);
-	}
 }
 
 static void	process_args(char **res, t_options *options)
@@ -65,9 +62,7 @@ static void	process_args(char **res, t_options *options)
 	j = 0;
 	while (res[j])
 	{
-		if (res[j][0] == '-' && res[j][1] == '-')
-			parse_flags(res, res[j], options);
-		else if (!is_valid_number(res[j]) || !add_to_stack(res[j], options))
+		if (!is_valid_number(res[j]) || !add_to_stack(res[j], options))
 		{
 			free_split(res);
 			print_error(options);
@@ -84,17 +79,22 @@ void	parse_args(int argc, char **argv, t_options *options)
 	i = 1;
 	while (i < argc)
 	{
-		res = ft_split(argv[i], ' ');
-		if (!res)
-			print_error(options);
-		if (!res[0])
+		if (argv[i][0] == '-' && argv[i][1] == '-')
+			parse_flags(argv[i], options);
+		else
 		{
+			res = ft_split(argv[i], ' ');
+			if (!res)
+				print_error(options);
+			if (!res[0])
+			{
+				free_split(res);
+				i++;
+				continue ;
+			}
+			process_args(res, options);
 			free_split(res);
-			i++;
-			continue ;
 		}
-		process_args(res, options);
-		free_split(res);
 		i++;
 	}
 }

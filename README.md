@@ -97,12 +97,17 @@ cat bench.txt
 ## Algorithms and design decisions
 
 ### 1. Simple strategy — selection sort adaptation
+Selector: --simple
 
-**Selector:** `--simple`
+The algorithm repeatedly finds the smallest value remaining in stack a, rotates a in the shorter direction to bring that value to the top, and pushes it to b. Once only three elements remain in a, it sorts those with a dedicated three-element routine. Finally, it pushes the saved minimum values back from b to a, leaving the smallest on top.
 
-The algorithm repeatedly finds the smallest value remaining in stack `a`, rotates `a` in the shorter direction to bring that value to the top, and pushes it to `b`. Once only three elements remain in `a`, it sorts those with a dedicated three-element routine. Finally, it pushes the saved minimum values back from `b` to `a`, leaving the smallest on top.
+The reason for selecting this method as the simple baseline is its straightforward logic and predictable behavior. Tiny inputs use specialized cases where applicable.
 
-The reason for selecting this method as the **simple baseline** is its straightforward logic and predictable behavior. Tiny inputs use specialized cases where applicable.
+**Complexity:** The algorithm repeatedly searches through the remaining elements to find the minimum. The search sizes decrease from approximately `n` to `n-1`, `n-2`, and so on. Therefore, the total number of comparisons is bounded by
+
+`n + (n-1) + ... + 1 = n(n+1)/2`
+
+which gives **O(n²)**. The rotations and stack operations do not change this overall quadratic bound.
 
 ### 2. Medium strategy — chunk-based sorting
 
@@ -112,6 +117,10 @@ After assigning ranks, the algorithm chooses a chunk width approximately equal t
 
 Chunking is intended to process values in manageable ranges, reducing unnecessary work compared with repeatedly extracting minima directly from `a`.
 
+**Complexity:** The algorithm divides the input into approximately `√n` chunks. Each element is processed while scanning the stacks and is moved or rotated according to its position within the current chunk. As the input size increases, the number of operations grows with the number of elements and the number of chunks. With a chunk width of approximately `√n`, the operation count therefore grows approximately as **O(n√n)**.
+
+This provides a more scalable growth in the number of operations as the input size increases.
+
 ### 3. Complex strategy — binary radix sort
 
 **Selector:** `--complex`
@@ -119,6 +128,16 @@ Chunking is intended to process values in manageable ranges, reducing unnecessar
 This algorithm first assigns rank indices. Starting with the least-significant bit, it processes the elements according to the current bit: values whose bit is `0` are pushed from `a` to `b` (`pb`), while those whose bit is `1` are rotated within `a` (`ra`). It then pushes everything from `b` back into `a` (`pa`) and continues to the next bit.
 
 After all bits have been processed, stack `a` is sorted by rank, and therefore by original value. This strategy provides predictable behavior as the input size increases.
+
+**Complexity:** Each element is processed once for every binary digit of its rank. An input of `n` elements requires approximately
+
+`ceil(log₂ n)`
+
+bits. Each bit pass processes all `n` elements and moves the elements between the stacks. Therefore, the total work is approximately
+
+`n × ceil(log₂ n)`
+
+giving **O(n log n)**.
 
 ### 4. Adaptive strategy — disorder-based selection
 

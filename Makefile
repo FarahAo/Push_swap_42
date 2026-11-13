@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tuqa134 <tuqa134@student.42.fr>            +#+  +:+       +#+         #
+#    By: tkhaleel <tkhaleel@learner.42.tech>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/10/13 16:37:21 by fabo-ome          #+#    #+#              #
-#    Updated: 2026/11/11 15:39:00 by fabo-ome         ###   ########.fr        #
+#    Created: 2026/11/12 14:52:10 by tkhaleel          #+#    #+#              #
+#    Updated: 2026/11/12 14:52:17 by tkhaleel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -I.
+CFLAGS = -Wall -Wextra -Werror
 
 SRC = main.c sort/chunk_sort.c sort/radix_sort.c sort/selection_sort.c stack_utils.c \
       operations/op1.c operations/op2.c operations/op3.c operations/operation_utils.c \
